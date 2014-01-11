@@ -5,8 +5,8 @@
 */
 $('body').append("<div id='jAlertBack'></div>");$jAlertBack=$('#jAlertBack');function anyAlertsVisible(){var visible=false;$('.jAlertWrap').each(function(){if($(this).is(":visible")){visible=true;return;}});return visible;}
 function closeAlert(alert,remove,onClose){if(alert=='all'){alert=$('.jAlertWrap');}
-alert.hide('200');if(remove){alert.remove();}
-setTimeout(function(){if(!anyAlertsVisible()){$jAlertBack.fadeOut('fast');if(typeof onClose=='function'){onClose();}}else if(typeof onClose=='function'){onClose();}},500);}
+alert.hide('200');setTimeout(function(){if(remove){alert.remove();}
+if(!anyAlertsVisible()){$jAlertBack.fadeOut('fast');if(typeof onClose=='function'){onClose();}}else if(typeof onClose=='function'){onClose();}},500);}
 function showAlert(alert,overlap){if(!overlap){closeAlert($(getTopMost('.jAlertWrap')),false);}
 $jAlertBack.fadeIn('fast');alert.show('fast');}
 function getTopMost(elem){var top=0,el;$(elem).each(function(){var offset=$(this).offset();if(offset.top>top){highest=offset.top;el=this;}});return el;}

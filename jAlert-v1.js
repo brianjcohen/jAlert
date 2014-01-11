@@ -40,10 +40,10 @@ function closeAlert(alert, remove, onClose){
 		alert = $('.jAlertWrap');
 	}
 	alert.hide('200'); 
+	setTimeout(function(){
 	if(remove){
 		alert.remove();
 	}
-	setTimeout(function(){
 	if(!anyAlertsVisible()){
 		$jAlertBack.fadeOut('fast');
 		if(typeof onClose == 'function'){ onClose(); }
