@@ -27,10 +27,11 @@ function anyAlertsVisible(){
 	alert: (dom object) - The jAlertWrap for the alert you'd like to show, usually you'll just use what was returned by creating an alert
 	remove: (boolean) - Whether or not to remove it completely, or just hide it, defaults to hide
 	onClose: (function || false) - Function to run onClose	
+	onOpen: (function || false) - Function to run onOpen	
 		
 	To Use:
 	**Create an alert first**
-	var thisAlert = ajaxAlert('Your Website Mobilized', 'http://yourwebsite.com', '500px', 'sm', '', false, true, false);
+	var thisAlert = ajaxAlert('Your Website Mobilized', 'http://yourwebsite.com', '500px', 'sm', '', false, true, false, false);
 	**Then use the returned dom element, or find it based on whatever ID you may have assigned it**
 	closeAlert(thisAlert, true);	
 	
@@ -60,7 +61,7 @@ function closeAlert(alert, remove, onClose){
 	
 	To Use:
 	**Create an alert first**
-	var thisAlert = ajaxAlert('Your Website Mobilized', 'http://yourwebsite.com', '500px', 'sm', '', false, true, false);
+	var thisAlert = ajaxAlert('Your Website Mobilized', 'http://yourwebsite.com', '500px', 'sm', '', false, true, false, false);
 	**Then use the returned dom element, or find it based on whatever ID you may have assigned it**
 	showAlert(thisAlert, true);
 
@@ -165,9 +166,10 @@ function jAlert(title, message, url, iframeSrc, iframeHeight, classes, id, hideO
 	hideOnClick: (true or false) - Whether or not you want to hide the div when you click anywhere on the screen
 	closeBtn: (true or false) - Whether or not to show a close button in the top right
 	onClose: (function or false) - Function to run after the alert is closed by the user
+	onOpen: (function || false) - Function to run onOpen	
 	
 	To Use:
-	var thisAlert = staticAlert('Success!', 'Your message has been deleted.', 'sm', '', false, true, false);
+	var thisAlert = staticAlert('Success!', 'Your message has been deleted.', 'sm', '', false, true, false, false);
 	
 	This will show a popup with the title "Success!", the message "your message has been deleted.", in a "sm"all alert, it won't have a special "id", it "won't close" when you click any random spot, it will show a "close button", and it doesn't have an "on close" callback function.
 	
@@ -189,9 +191,10 @@ function staticAlert(title, message, classes, id, hideOnClick, closeBtn, onClose
 	hideOnClick: (true or false) - Whether or not you want to hide the div when you click anywhere on the screen
 	closeBtn: (true or false) - Whether or not to show a close button in the top right
 	onClose: (function or false) - Function to run after the alert is closed by the user
+	onOpen: (function || false) - Function to run onOpen	
 	
 	To Use:
-	var thisAlert = iframeAlert('Your Website Mobilized', 'http://yourwebsite.com', '500px', 'sm', '', false, true, false);
+	var thisAlert = iframeAlert('Your Website Mobilized', 'http://yourwebsite.com', '500px', 'sm', '', false, true, false, false);
 	
 	This will show a popup with the title "Your Website Mobilized", the message will be an iframed version of "yourwebsite.com", in a "sm"all alert, it won't have a special "id", it "won't close" when you click any random spot, it will show a "close button", and it doesn't have an "on close" callback function.
 	
@@ -213,10 +216,11 @@ function iframeAlert(title, iframeSrc, iframeHeight, classes, id, hideOnClick, c
 	hideOnClick: (true or false) - Whether or not you want to hide the div when you click anywhere on the screen
 	closeBtn: (true or false) - Whether or not to show a close button in the top right
 	onClose: (function or false) - Function to run after the alert is closed by the user
+	onOpen: (function || false) - Function to run onOpen	
 	
 	
 	To Use:
-	var thisAlert = ajaxAlert('Sports Results', '/sports-results.php', 'lg', 'sportsResults', false, true);
+	var thisAlert = ajaxAlert('Sports Results', '/sports-results.php', 'lg', 'sportsResults', false, true, false);
 */
 function ajaxAlert(title, url, classes, id, hideOnClick, closeBtn, onClose, onOpen){
 	return jAlert(title, false, url, false, false, classes, id, hideOnClick, closeBtn, onClose, onOpen);
