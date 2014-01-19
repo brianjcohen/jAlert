@@ -22,7 +22,7 @@ div+="><div>";if(closeBtn){div+="<div class='closeAlert jClose'>X</div>";}
 if(title){div+="<div class='jTitle'><div>"+title+"</div></div>";}
 div+="<div class='jContent'>"+content+"</div></div></div></div>";$('html, body').animate({scrollTop:0},'slow');var div=$(div);div.appendTo('body');div.show('fast');if(closeBtn){div.find('.closeAlert').on('click',function(){closeAlert(div,true,onClose);});}
 if(hideOnClick){$(document).one('mouseup',function(e){closeAlert(div,true,onClose);});}
-div.find('.autofocus:first').focus();if(typeof onOpen=='function'){onOpen();}
+div.find('.autofocus:first').focus();if(typeof onOpen=='function'){onOpen(div);}
 return div;}
 if(!message&&!url&&!iframeSrc){return showjAlert('jAlert content is empty.');}else if(url){$.get(url,function(data){return showjAlert(data);});}else if(iframeSrc){return showjAlert("<iframe style='border: 0px; height: "+iframeHeight+"; width: 100%;' src='"+iframeSrc+"'></iframe>");}else if(message){return showjAlert(message);}}
 function staticAlert(title,message,classes,id,hideOnClick,closeBtn,onClose,onOpen){return jAlert(title,message,false,false,false,classes,id,hideOnClick,closeBtn,onClose,onOpen);}

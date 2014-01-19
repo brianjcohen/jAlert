@@ -137,7 +137,7 @@ function jAlert(title, message, url, iframeSrc, iframeHeight, classes, id, hideO
 			}); 
 		}
 		div.find('.autofocus:first').focus();
-		if(typeof onOpen == 'function'){ onOpen(); }
+		if(typeof onOpen == 'function'){ onOpen(div); }
 		return div;
 	}
 	
