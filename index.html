@@ -58,7 +58,7 @@
 
         <div class="col-lg-6">
           <h4>Customizable:</h4>
-          <p><ul><li>CSS Design</li><li>Different Sizes</li><li>Stackable</li><li>Title/Content</li><li>Hide/Show Close Btn</li><li>On-Close Callback</li></ul></p>
+          <p><ul><li>CSS Design</li><li>Different Sizes</li><li>Stackable</li><li>Title/Content</li><li>Hide/Show Close Btn</li><li>On-Close & Open Callback</li></ul></p>
         </div>
       </div>
 
@@ -84,22 +84,22 @@
 &lt;!-- Attach jConfirm to your buttons -->
 &lt;script&gt;
 $('body').on('click', '.ajaxAlert', function(){ 
-ajaxAlert&#40;'Ajax Demo', 'ajax.php', 'sm', '', true, true, false&#41;; 
+ajaxAlert&#40;'Ajax Demo', 'ajax.php', 'sm', '', true, true, false, false&#41;; 
 }); 
 $('body').on('click', '.iframeAlert', function(){ 
-iframeAlert&#40;'iFrame Demo', 'https://nomoreagent.com', '600px', 'md', '', true, true, false&#41;; 
+iframeAlert&#40;'iFrame Demo', 'https://nomoreagent.com', '600px', 'md', '', true, true, false, false&#41;; 
 }); 
 $('body').on('click', '.photoAlert', function(){ 
 showPic('http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg', 'lg'); 
 });
 $('body').on('click', '.staticAlert', function(){ 
-staticAlert&#40;'Successful Demo', 'You\'re in awe now aren\'t you?', 'sm', '', true, true, false&#41;; 
+staticAlert&#40;'Successful Demo', 'You\'re in awe now aren\'t you?', 'sm', '', true, true, false, false&#41;; 
 }); 
 $('body').on('click', '.successAlert', function(){ 
-staticAlert&#40;'Success! You did it!', 'So, now you know how to make your customer feel like they did a great job!', 'sm jSuccess', '', true, true, false&#41;; 
+staticAlert&#40;'Success! You did it!', 'So, now you know how to make your customer feel like they did a great job!', 'sm jSuccess', '', true, true, false, false&#41;; 
 }); 
 $('body').on('click', '.errorAlert', function(){ 
-staticAlert&#40;'ERROR!', 'You better fix it soon or you\'ll lose your customer!', 'sm jError', '', true, true, false&#41;; 
+staticAlert&#40;'ERROR!', 'You better fix it soon or you\'ll lose your customer!', 'sm jError', '', true, true, false, false&#41;; 
 });
 &lt;/script&gt;
           </pre></p>
@@ -131,11 +131,11 @@ staticAlert&#40;'ERROR!', 'You better fix it soon or you\'ll lose your customer!
 	<script>
 	$('body').on('click', '.ajaxAlert', function(e){
 	e.preventDefault();
-		ajaxAlert('Ajax Demo', 'ajax.php', 'sm', '', true, true, false);
+		ajaxAlert('Ajax Demo', 'ajax.php', 'sm', '', true, true, false, false);
 	});
 	$('body').on('click', '.iframeAlert', function(e){
 		e.preventDefault();
-		iframeAlert('iFrame Demo', 'https://nomoreagent.com', '600px', 'md', '', true, true, false);
+		iframeAlert('iFrame Demo', 'https://nomoreagent.com', '600px', 'md', '', true, true, false, false);
 	});
 	$('body').on('click', '.photoAlert', function(e){
 		e.preventDefault();
@@ -143,7 +143,7 @@ staticAlert&#40;'ERROR!', 'You better fix it soon or you\'ll lose your customer!
 	});
 	$('body').on('click', '.staticAlert', function(e){
 		e.preventDefault();
-		staticAlert('Successful Demo', 'You\'re in awe now aren\'t you?', 'sm', '', true, true, false);
+		staticAlert('Successful Demo', 'You\'re in awe now aren\'t you?', 'sm', '', true, true, false, false);
 	});
 	$('body').on('click', '.successAlert', function(e){
 		e.preventDefault();
@@ -151,7 +151,7 @@ staticAlert&#40;'ERROR!', 'You better fix it soon or you\'ll lose your customer!
 	});
 	$('body').on('click', '.errorAlert', function(e){
 		e.preventDefault();
-		staticAlert('ERROR!', 'You better fix it soon or you\'ll lose your customer!', 'sm jError', '', true, true, false);
+		staticAlert('ERROR!', 'You better fix it soon or you\'ll lose your customer!', 'sm jError', '', true, true, false, false);
 	});
 	
 	

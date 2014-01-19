@@ -88,7 +88,7 @@ function getTopMost(elem) {
 }
 
 /* The main jAlert function...You don't really need to touch this unless you want to */
-function jAlert(title, message, url, iframeSrc, iframeHeight, classes, id, hideOnClick, closeBtn, onClose){
+function jAlert(title, message, url, iframeSrc, iframeHeight, classes, id, hideOnClick, closeBtn, onClose, onOpen){
 	/* Set defaults */
 	title = title || false;
 	message = message || false;
@@ -100,6 +100,7 @@ function jAlert(title, message, url, iframeSrc, iframeHeight, classes, id, hideO
 	if(hideOnClick !== true){ hideOnClick = false; }
 	closeBtn = true || false;
 	if(typeof onClose != 'function'){ onClose = false; }
+	if(typeof onOpen != 'function'){ onOpen = false; }
 	
 	/* Show an alert */
 	function showjAlert(content){
@@ -126,15 +127,16 @@ function jAlert(title, message, url, iframeSrc, iframeHeight, classes, id, hideO
 	  	div.show('fast');
 	  	if(closeBtn){
 		  	div.find('.closeAlert').on('click', function(){
-				closeAlert(div, false, onClose);
+				closeAlert(div, true, onClose);
 			});
 		}
 		if(hideOnClick){
 			$(document).one('mouseup', function(e){
-				closeAlert(div, false, onClose);
+				closeAlert(div, true, onClose);
 			}); 
 		}
 		div.find('.autofocus:first').focus();
+		if(typeof onOpen == 'function'){ onOpen(); }
 		return div;
 	}
 	
@@ -171,8 +173,8 @@ function jAlert(title, message, url, iframeSrc, iframeHeight, classes, id, hideO
 	
 */
 
-function staticAlert(title, message, classes, id, hideOnClick, closeBtn, onClose){
-	return jAlert(title, message, false, false, false, classes, id, hideOnClick, closeBtn, onClose);
+function staticAlert(title, message, classes, id, hideOnClick, closeBtn, onClose, onOpen){
+	return jAlert(title, message, false, false, false, classes, id, hideOnClick, closeBtn, onClose, onOpen);
 }
 
 /*
@@ -195,8 +197,8 @@ function staticAlert(title, message, classes, id, hideOnClick, closeBtn, onClose
 	
 */
 
-function iframeAlert(title, iframeSrc, iframeHeight, classes, id, hideOnClick, closeBtn, onClose){
-	return jAlert(title, false, false, iframeSrc, iframeHeight, classes, id, hideOnClick, closeBtn, onClose);
+function iframeAlert(title, iframeSrc, iframeHeight, classes, id, hideOnClick, closeBtn, onClose, onOpen){
+	return jAlert(title, false, false, iframeSrc, iframeHeight, classes, id, hideOnClick, closeBtn, onClose, onOpen);
 }
 
 
@@ -216,8 +218,8 @@ function iframeAlert(title, iframeSrc, iframeHeight, classes, id, hideOnClick, c
 	To Use:
 	var thisAlert = ajaxAlert('Sports Results', '/sports-results.php', 'lg', 'sportsResults', false, true);
 */
-function ajaxAlert(title, url, classes, id, hideOnClick, closeBtn, onClose){
-	return jAlert(title, false, url, false, false, classes, id, hideOnClick, closeBtn, onClose);
+function ajaxAlert(title, url, classes, id, hideOnClick, closeBtn, onClose, onOpen){
+	return jAlert(title, false, url, false, false, classes, id, hideOnClick, closeBtn, onClose, onOpen);
 }
 
 /* Replaces the default alert(), just specify a message */
