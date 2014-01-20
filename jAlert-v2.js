@@ -38,8 +38,8 @@ $.fn.jAlert = function(options) {
 		closeBtn: true,
 		btn: false,
 		autofocus: false,
-		onClose: function(elem){},
-		onOpen: function(elem){}
+		onClose: false,
+		onOpen: false
 		}
 	
 	/* Combine user options with default */
