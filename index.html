@@ -9,9 +9,19 @@
 
     <title>Responsive jQuery Modal / Lightbox Alert | jAlert</title>
 	<link rel='stylesheet' type='text/css' href='https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'>
-	<link rel="stylesheet" type="text/css" href="bootstrap-override.css">
-	<link rel="stylesheet" type="text/css" href="jAlert-v1.css">
-	
+	<link rel="stylesheet" type="text/css" href="jAlert-v2.css">
+	<style>
+	.fb-comments, .fb-comments span[style], .fb-comments iframe[style] {width: 100% !important;}
+	ul > li a{ color: #555; background: #f3f3f3; }
+	ul > li.active a{ background: #DBDBDB; color: #555; }
+	ul > li > ul > li.active a{ background: #555 !important; color: white !important; }
+	.getItNow{
+		background: #4ea6dd; color: white;
+	}
+	.getItNow:hover{
+		background: #2e7cab !important; color: white !important;
+	}
+	</style>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -21,88 +31,475 @@
 
   <body>
 
+    <div class='navbar navbar-inverse'>
     <div class="container">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="https://github.com/VersatilityWerks/jAlert">GitHub</a></li>
-          <li><a href="http://flwebsites.biz/contact">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">jAlert - jQuery Plugin</h3>
+      <a href="http://flwebsites.biz/contact" style='float: right; color: #f3f3f3;'>Contact the Programmer</a>
+        <h3 style='color: white; margin-bottom: 20px;'>jAlert - jQuery Modals</h3>
       </div>
-
-      <div class="jumbotron">
+    </div>
+    </div>
+    
+    <div class="container">  
+      <div class='row'>
+	  <div class='col-md-3'>
+		  <div class='bs-sidebar hidden-print affix' role='complementary'>
+		  <ul class="nav bs-sidenav">
+	                <li class="">
+					  <a href="#download" class='getItNow'>GET IT NOW</a>
+					</li>
+					 <li class="">
+					  <a href="#documentation">Documentation</a>
+					  <ul class="nav">
+					    <li class=""><a href="#basicSetup">Basic Setup</a></li>
+					    <li class=""><a href="#headerOptions">Alert Header</a></li>
+					    <li class=""><a href="#contentOptions">Alert Content</a></li>
+					    <li class=""><a href="#closeOptions">Closing the Alert</a></li>
+					    <li class=""><a href="#buttonOptions">Adding Buttons</a></li>
+					    <li class=""><a href="#miscOptions">Miscellaneous</a></li>
+					    <li class=""><a href="#callbacks">CallBacks</a></li>
+					    <li class=""><a href="#publicFunctions">Public Functions</a></li>
+					  </ul>
+					</li>
+					<li>
+						<a href='#notes'>Notes</a>
+					</li>
+					<li>
+						<a href='#comments'>Comments</a>
+					</li>
+					<li>
+						<a href='#license'>License (M.I.T)</a>
+					</li>
+	            </ul>
+		  </div>
+	  </div>
+	  <div class='col-sm-12 col-md-9 col-md-offset-3' role='main'>
+	  
+      <div class="jumbotron text-center" id='download'>
         <h1>jQuery Modal Alerts </h1>
-		<h4>jAlert v.1 - Only 8kb (minified)</h4>
-        <p class="lead">Looking for something different? There are lots of modals out there, but this one takes the cake (plus it's mobile friendly!)</p>
-        <p>
-		   <a href='https://github.com/VersatilityWerks/jAlert' class="btn btn-lg btn-primary" role="button">Get it on Github</a>
-		</p>
-		<h4>Try it</h4>
+		<h4>jAlert v.2 - Only 20kb (minified)</h4>
+        <p class="lead">Responsive, Easy to Setup, Detailed Comments, Fast</p>
+        <div class='row-fluid'>
+        <div class='col-sm-6'>
+        <a href='https://github.com/VersatilityWerks/jAlert/archive/master.zip' target='_blank' class='btn btn-lg btn-block btn-success'>Download</a>
+        </div>
+        <div class='col-sm-6'>
+		   <a href='https://github.com/VersatilityWerks/jAlert' class="btn btn-lg btn-block btn-primary" role="button">Github</a>
+        </div>
+        </div><br><br>
+        <p class='lead'>Whether you call it a lightbox, modal, popup, or window, jAlert is an excellent replacement / alternative for Simple Modal, FancyBox, or whatever plugin you're used to.
+        </p>
+		<h1>Demos</h1>
 		<p>
-        	<a href='#' class="btn btn-lg btn-success ajaxAlert" role="button">Ajax</a> 
-        	<a href='#' class="btn btn-lg btn-success iframeAlert" role="button">iFrame</a> 
-			<a href='#' class="btn btn-lg btn-success photoAlert" role="button">Photo</a> 
-		</p>
-		<p>
-			<a href='#' class="btn btn-lg btn-success staticAlert" role="button">Default</a> 
-        	<a href='#' class="btn btn-lg btn-success successAlert" role="button">Success</a> 
-        	<a href='#' class="btn btn-lg btn-success errorAlert" role="button">Error</a>
+        	<a href='#' class="btn btn-lg btn-default ajaxAlert" role="button">Ajax</a> 
+        	<a href='#' class="btn btn-lg btn-default iframeAlert" role="button">iFrame</a> 
+			<a href='#' class="btn btn-lg btn-default photoAlert" role="button">Photo</a> 
+			
+			<a href='#' class="btn btn-lg btn-default staticAlert" role="button">Default</a> 
+        	<a href='#' class="btn btn-lg btn-default successAlert" role="button">Success</a> 
+        	<a href='#' class="btn btn-lg btn-default errorAlert" role="button">Error</a>
+        	
+			<a href='#' class="btn btn-lg btn-default uncloseableAlert" role="button">Un-Close-Able</a> 
+        	<a href='#' class="btn btn-lg btn-default openCallbackAlert" role="button">Open Callback</a> 
+        	<a href='#' class="btn btn-lg btn-default closeCallbackAlert" role="button">Close Callback</a>
+        	
+			<a href='#' class="btn btn-lg btn-default withButtonsAlert" role="button">With Buttons</a>
 		</p>
       </div>
 
       <div class="row">
         <div class="col-lg-6">
-          <h4>Beautiful</h4>
+          <h4>It's B-E-A-Utiful</h4>
           <p><img src='preview.png' alt='Preview' style='width: 100%;'></p>
         </div>
 
         <div class="col-lg-6">
-          <h4>Customizable:</h4>
-          <p><ul><li>CSS Design</li><li>Different Sizes</li><li>Stackable</li><li>Title/Content</li><li>Hide/Show Close Btn</li><li>On-Close & Open Callback</li></ul></p>
+          <h4>This Awesome Plugin Features:</h4>
+          <p><ul><li>NO Price Tag (It's Free)</li><li>No-Conflict CSS</li><li>Various Sizes, Buttons, Etc</li><li>Stackable</li><li>Ajax, iFrame, Photo Lightbox</li><li>Easy Callbacks</li><li>Detailed Documentation</li><li>Plug and Play (No setup)</li><li>AND Much More!</li></ul></p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-lg-12">
-          <h4>Example Code (actual code from demo above):</h4>
-          <p><pre>
-&lt;!-- Includes the CSS -->
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;jAlert-v1.css&quot;&gt;
-
-&lt;!-- Create buttons -->
-&lt;a href='#' class=&quot;btn btn-lg btn-success ajaxAlert&quot; role=&quot;button&quot;&gt;Ajax&lt;/a&gt; 
-&lt;a href='#' class=&quot;btn btn-lg btn-success iframeAlert&quot; role=&quot;button&quot;&gt;iFrame&lt;/a&gt; 
-&lt;a href='#' class=&quot;btn btn-lg btn-success photoAlert&quot; role=&quot;button&quot;&gt;Photo&lt;/a&gt;
-&lt;a href='#' class=&quot;btn btn-lg btn-success staticAlert&quot; role=&quot;button&quot;&gt;Default&lt;/a&gt;
-&lt;a href='#' class=&quot;btn btn-lg btn-success successAlert&quot; role=&quot;button&quot;&gt;Success&lt;/a&gt;
-&lt;a href='#' class=&quot;btn btn-lg btn-success errorAlert&quot; role=&quot;button&quot;&gt;Error&lt;/a&gt;
-
-&lt;!-- Includes the jQuery and the JS -->
+        	<br><hr id='documentation'><br>
+          <h1>Documentation:</h1><br>
+	          <h4 id='basicSetup'>Basic Setup</h4>
+	          <u>jQuery is required</u>. Make sure you've included the plugin's JS + CSS as well.<br><br>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;jAlert-v2.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!-- YOUR SITE CONTENT HERE --&gt;
 &lt;script src='https://code.jquery.com/jquery-2.0.3.min.js'&gt;&lt;/script&gt;
-&lt;script src='jAlert-v1.js'&gt;&lt;/script&gt;
-
-&lt;!-- Attach jConfirm to your buttons -->
+&lt;script src='jAlert-v2.js'&gt;&lt;/script&gt;
 &lt;script&gt;
-$('body').on('click', '.ajaxAlert', function(){ 
-ajaxAlert&#40;'Ajax Demo', 'ajax.php', 'sm', '', true, true, false, false&#41;; 
-}); 
-$('body').on('click', '.iframeAlert', function(){ 
-iframeAlert&#40;'iFrame Demo', 'https://nomoreagent.com', '600px', 'md', '', true, true, false, false&#41;; 
-}); 
-$('body').on('click', '.photoAlert', function(){ 
-showPic('http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg', 'lg'); 
-});
-$('body').on('click', '.staticAlert', function(){ 
-staticAlert&#40;'Successful Demo', 'You\'re in awe now aren\'t you?', 'sm', '', true, true, false, false&#41;; 
-}); 
-$('body').on('click', '.successAlert', function(){ 
-staticAlert&#40;'Success! You did it!', 'So, now you know how to make your customer feel like they did a great job!', 'sm jSuccess', '', true, true, false, false&#41;; 
-}); 
-$('body').on('click', '.errorAlert', function(){ 
-staticAlert&#40;'ERROR!', 'You better fix it soon or you\'ll lose your customer!', 'sm jError', '', true, true, false, false&#41;; 
-});
+&lt;!-- USE PLUGIN HERE --&gt;
 &lt;/script&gt;
-          </pre></p>
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'message': 'Testing' })" style="float:right">Demo</a>
+		<h4>Basic Usage (Alert override <i>enabled</i>)</h4>
+		<small>Alert override enabled by default. <b>To disable</b>, delete it from the bottom of the jAlert JS file.</small><br>
+<pre>
+alert('Testing');
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'message': 'Testing' })" style="float:right">Demo</a>
+		<h4>Basic Usage (Alert override <i>disabled</i>)</h4><br>
+<pre>
+$.fn.jAlert({
+	'message': 'Testing'
+});
+</pre>
+<br><hr id='headerOptions'><br><h1>Header Options</h1>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'jAlert with a header', 'message': 'Howdy :D' })" style="float:right">Demo</a>
+		<h4>With a Header/Title</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'jAlert with a header',
+	'message': 'Howdy :D'
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Success', 'message': 'You did well!', 'theme':'success' })" style="float:right">Demo</a>
+		<h4>With Success/Green Header</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'Success',
+	'message': 'You did well!',
+	'theme': 'success'
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Error', 'message': 'You suck!', 'theme':'error' })" style="float:right">Demo</a>
+		<h4>With Error/Red Header</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'Error',
+	'message': 'You suck!',
+	'theme': 'error'
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Cool', 'message': 'I\'m feelin\' blue.', 'theme':'info' })" style="float:right">Demo</a>
+		<h4>With Info/Blue Header</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'Cool',
+	'message': "I'm feelin' blue.',
+	'theme': 'info'
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Darky', 'message': 'I guess you did alright.', 'theme':'dark' })" style="float:right">Demo</a>
+		<h4>With Dark/Black Header</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'Darky',
+	'message': 'I guess you did alright.',
+	'theme': 'dark'
+});
+</pre>
+<br><hr id='contentOptions'><br><h1>Content Options</h1>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Embedded / Static Message', 'message': 'I am passed to jAlert manually' })" style="float:right">Demo</a>
+		<h4>Embedded / Static Message</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'Embedded / Static Message',
+	'message': 'I am passed to jAlert manually'
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'iFrame of NoMoreAgent.com', 'iframeUrl':'https://nomoreagent.com', 'iframeHeight': '600px;', 'message': '<br><br>Optionally, you can append content to the alert.' })" style="float:right">Demo</a>
+		<h4>iFramed Content</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'iFrame of NoMoreAgent.com',
+	'iframeUrl': 'https://nomoreagent.com',
+	'iframeHeight': '600px',
+	'message': '<br><br>Optionally, you can append content to the alert.'
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Ajaxed Content', 'ajaxUrl':'ajax.php', 'message': '<br><br>Optionally, you can append content to the alert.' })" style="float:right">Demo</a>
+		<h4>Ajaxed Content</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'Ajaxed Content',
+	'iframeUrl': 'ajax.php',
+	'message': '&lt;br&gt;&lt;br&gt;Optionally, you can append content to the alert.'
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Image Title', 'imgUrl':'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg', 'message': '<br><br>Optionally, you can append content to the alert.' })" style="float:right">Demo</a>
+		<h4>Image Content (Basically a "LightBox" Alternative)</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'Image Title',
+	'iframeUrl': 'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg',
+	'message': '&lt;br&gt;&lt;br&gt;Optionally, you can append content to the alert.'
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'imgUrl':'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg' })" style="float:right">Demo</a>
+		<h4>Image Content Without Header</h4><br>
+<pre>
+$.fn.jAlert({
+	'iframeUrl': 'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg'
+});
+</pre>
+<br><hr id='closeOptions'><br><h1>Close Options</h1>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'No close button', 'message': 'Where\'d it go? (click anywhere to close, or press \"ESC\")','closeBtn':false })" style="float:right">Demo</a>
+		<h4>Hide Close Button (top right x)</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'No close button',
+	'message': "Where'd it go? (click anywhere to close, or press ESC)",
+	'closeBtn': false
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Click the X to close this Alert', 'message': 'Or you can press the \"esc\" button.', 'clickAnywhere': false })" style="float:right">Demo</a>
+		<h4>Disable Close When You Click Anywhere</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'Click the X to close this alert',
+	'message': 'Or you can press the "esc" button.',
+	'clickAnywhere': false
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Click the X or Anywhere Else', 'message': 'Clicking ESC will not do anything.', 'clickAnywhere': false })" style="float:right">Demo</a>
+		<h4>Disable Close When You Click "ESC"</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'Click the X or Anywhere Else',
+	'message': 'Clicking ESC will not do anything.',
+	'hideOnEsc': false
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'You cannot close this Alert', 'message': 'Refresh your page to close this alert (you can add buttons that will close it if you would like. For instance, forcing someone to like your facebook page before they can view the page)', 'clickAnywhere': false, 'hideOnEsc': false, 'closeBtn': false })" style="float:right">Demo</a>
+		<h4>Disabled All Close Options</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'You cannot close this Alert',
+	'message': 'Refresh your page to close this alert (you can add buttons that will close it if you would like. For instance, forcing someone to like your facebook page before they can view the page)',
+	'hideOnEsc': false,
+	'clickAnywhere': false,
+	'closeBtn': false
+});
+</pre>
+<br><hr id='buttonOptions'><br><h1>Button Options</h1>
+		<br><br><a href="#" onclick="$.fn.jAlert({
+	'message': 'Just a simple button to close the alert.',
+	'btn': [
+		{'label':'Close', 'closeOnClick': true }
+	],
+	'size': 'small'
+});" style="float:right">Demo</a>
+		<h4>Plain Button</h4><br>
+<pre>
+$.fn.jAlert({
+	'message': 'Just a simple button to close the alert.',
+	'btn': [
+		{'label':'Close', 'closeOnClick': true }
+	],
+	'size': 'small'
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({
+	'message': 'The button is green, but could be green, blue, or red.',
+	'btn': [
+		{'label':'Click Here', 'class': 'green', 'closeOnClick': true }
+	],
+	'size': 'small', 
+	'autofocus': 'btn:first'
+});" style="float:right">Demo</a>
+		<h4>Colored Button</h4><br>
+<pre>
+$.fn.jAlert({
+	'message': 'The button is green, but could be green, blue, or red.',
+	'btn': [
+		{'label':'Click Here', 'class': 'green', 'closeOnClick': true }
+	],
+	'size': 'small', 
+	'autofocus': 'btn:first'
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({'message': 'Rainbow :D','btn': [{'label':'Click Here', 'class': 'green', 'closeOnClick': true },{'label':'OR HERE', 'class': 'blue', 'closeOnClick': true },{'label':'Maybe Here?', 'class': 'red', 'closeOnClick': true }], 'autofocus': 'btn:last'});" style="float:right">Demo</a>
+		<h4>Multiple Buttons</h4><br>
+<pre>
+$.fn.jAlert({
+	'message': 'Rainbow :D',
+	'btn': [
+		{'label':'Click Here', 'class': 'green', 'closeOnClick': true },
+		{'label':'OR HERE', 'class': 'blue', 'closeOnClick': true },
+		{'label':'Maybe Here?', 'class': 'red', 'closeOnClick': true }
+	],
+	'autofocus': 'btn:last'
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({
+	'message': 'Click 4 Console',
+	'btn': [
+		{'label':'Click Here', 'class': 'green', 'closeOnClick': false, 'onClick': function(){ console.log('Hi there!'); } }
+	]
+});" style="float:right">Demo</a>
+		<h4>Button CallBack</h4><br>
+<pre>
+$.fn.jAlert({
+	'message': 'Click 4 Console',
+	'btn': [
+		{'label':'Click Here', 'class': 'green', 'closeOnClick': false, 'onClick': function(){ console.log('Hi there!'); } }
+	]
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({
+	'message': 'Replace Me',
+	'btn': [
+		{'label':'Do It', 'class': 'blue', 'closeOnClick': true, 'onClick': function(){$.fn.jAlert({'message':'DONE', 'title':'Lookin Good!', 'theme': 'info'}); } }
+	]
+});" style="float:right">Demo</a>
+		<h4>Open another Alert (Replace)</h4>
+		<small>This example shows setting closeOnClick to true to remove this alert when the button is clicked.</small><br>
+<pre>
+$.fn.jAlert({
+	'message': 'Replace Me',
+	'btn': [
+		{'label':'Do It', 'class': 'blue', 'closeOnClick': true, 'onClick': function(){$.fn.jAlert({'message':'DONE', 'title':'Success!', 'theme': 'success'}); } }
+	]
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({
+	'message': 'Cover Me',
+	'btn': [
+		{'label':'Do It', 'class': 'blue', 'closeOnClick': false, 'onClick': function(){ $.fn.jAlert({'message':'DONE', 'title': 'Success!', 'theme': 'success'}); } }
+	]
+});" style="float:right">Demo</a>
+		<h4>Open another Alert (On Top)</h4>
+		<small>This example shows setting closeOnClick to false to keep the alert around even when clicked.</small><br>
+<pre>
+$.fn.jAlert({
+	'message': 'Cover Me',
+	'btn': [
+		{'label':'Do It', 'class': 'blue', 'closeOnClick': false, 'onClick': function(){ $.fn.jAlert({'message':'DONE', 'title':'Success!', 'theme': 'success'}); } }
+	]
+});
+</pre>
+<br><hr id='miscOptions'><br><h1>Misc Options</h1>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Different Sizes', 'message': 'I am small, but could be small, medium, large, or full.', 'size': 'small' })" style="float:right">Demo</a>
+		<h4>Sizes</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'Different Sizes',
+	'message': 'I am small, but could be small, medium, large, or full.',
+	'size': 'small'
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Added CSS Class', 'message': 'I have an extra class (poo)', 'class': 'poo' })" style="float:right">Demo</a>
+		<h4>Adding Classes</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'Added CSS Class',
+	'message': 'I have an extra class (poo)',
+	'class': 'poo'
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Added CSS ID', 'message': 'I have an ID (poo)', 'id': 'poo' })" style="float:right">Demo</a>
+		<h4>Adding an ID</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'Added CSS ID',
+	'message': 'I have an ID (poo)',
+	'id': 'poo'
+});
+</pre>
+		<br><br><a href="#" class='autofocusDemo' style="float:right">Demo</a>
+		<h4>Auto-focusing on an Element</h4>
+		<b>NOT WORKING CORRECTLY FOR SOME REASON, WANNA HELP? GO TO <a href='https://github.com/VersatilityWerks/jAlert'>GITHUB</a> AND BRANCH OFF</b><br>
+<pre>
+$.fn.jAlert({
+	'title': 'Auto-focus on an Anchor',
+	'message': 'I am auto-focused on an anchor in the content, but I could be any DOM element in the alert you would like, OR you can use btn:first or btn:last to set it to one of the buttons you will learn about in the next section. &lt;a class=&quot;btn btn-primary&quot;&gt;HI&lt;/a&gt;',
+	'autofocus': '.btn'
+});
+</pre>	
+<br><hr id='callbacks'><br><h1>CallBacks</h1>
+		<br><br><a href="#" onclick="$.fn.jAlert({
+	'title': 'onOpen Callback',
+	'message': 'Check your javascript console!',
+	'onOpen': function(){
+		console.log('It opened right up!');
+	}
+});" style="float:right">Demo</a>
+		<h4>onOpen Callback</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'onOpen Callback',
+	'message': 'Check your javascript console!',
+	'onOpen': function(){
+		console.log('It opened right up!');
+	}
+});
+</pre>
+		<br><br><a href="#" onclick="$.fn.jAlert({
+	'title': 'onClose Callback',
+	'message': 'Check your javascript console!',
+	'onClose': function(){
+		console.log('It closed right up!');
+	}
+});" style="float:right">Demo</a>
+		<h4>onClose Callback</h4><br>
+<pre>
+$.fn.jAlert({
+	'title': 'onClose Callback',
+	'message': 'Check your javascript console!',
+	'onClose': function(){
+		console.log('It closed right up!');
+	}
+});
+</pre>
+<br><hr id='publicFunctions'><br><h1>Public Functions</h1>
+		<br><br><a href='#' class='showExisting' style='float:right;'>Demo</a>
+		<h4>Show / Hide Existing Alert</h4>
+		<small>Once you have created an alert, if it's been hidden, you can show it again using this public function</small><br>
+<pre>
+$.fn.jAlert({
+	'title': 'Show / Hide Existing',
+	'message': 'This will hide immediately, and reopen in 2 seconds',
+	'onOpen': function(alert){ //when the alert opens
+		alert.closeAlert(false); //the false means don't remove it, just hide it.
+		setTimeout(function(){ alert.showAlert(); }, 2000);
+	}
+});
+</pre><br><br>
+<b>.closeAlert() accepts 2 arguments.</b> The first, is a boolean on whether or not to completely remove the alert, or just hide it. If you don't plan on showing it again, it is recommended you just remove the thing to keep a slim DOM. The second is an on-close callback. The original onClose will not be utilized if you manually close an alert.<br><br>
+	<b>Example usage:</b> <pre>myAlert.closeAlert(false, function(){ console.log("I'm closed now, but only hidden!"); });</pre>
+<br><br>
+<b>.showAlert() accepts 3 arguments.</b> The first, is a boolean on whether or not to overlap other alerts, or hide them (true = overlap, false = hide all others). The second argument is only used if the first is true, and it is another boolean that determines whether or not to hide or remove completely any existing alerts (true = remove, false = hide). So if you'd like to temporarily hide all other alerts to show once, then manually show one again, this is for you! The third argument is an onOpen callback.<br><br>
+	<b>Example usage:</b> <pre>myAlert.openAlert(false, false, function(){ console.log("I just came from the dead and all other alerts were hidden to make room for me."); });</pre>
+<br><br>
+          <br><hr id='notes'><br><h1>Notes/Limitations</h1><br>
+          <ul>
+          <li>To repeat: <b>jQuery is REQUIRED</b></li>
+          <li>If you use an onClose callback, clickAnywhere will be automatically set to false, otherwise it gets hit off a million times.</li>
+          <li>If you add buttons to your alert, clickAnywhere will be automatically set to false, otherwise they wouldn't work.</li>
+          <li>If you have autofocus set, clickAnywhere will be automatically set to false, otherwise when you click on whatever's auto-focused, it would be ignored.</li>
+          <li>If you want to style the buttons, you'll need to either use the jBtn class, or remove it from your CSS so it doesn't interfere.</li>
+          <li>When autofocus is set to btn:first or btn:last, it's converted to .jBtn:last or .jBtn:first automatically. It doesn't actually search for an element called btn...</li>
+          <li>Sizes can be small, medium, large, full OR their shortcuts sm, md, lg, full</li>
+          <li>The themes are converted to classes. You don't need to use theme if you can remember the class names. They are: jDark, jSuccess, jError, and jInfo.</li>
+          <li>I tried to append most things with j to keep them from interfering with your current class names.</li>
+          <li>I'm sure there are ways to optimize the ESC key and clickAnywhere keyup/click handlers and some other stuff. Your suggestions are MORE THAN WELCOME. I am pretty comfortable with jQuery, but know I still lack some advanced technique knowledge.</li>
+          <li><form action="https://www.paypal.com/cgi-bin/webscr" id='paypal' method="post" target="_blank" style="font-size: .85em; line-height: 1.4em; margin-bottom: 10px;"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="hosted_button_id" value="9H3AX8KJJWS6J"><a href='#' onclick="javascript:getElementById('paypal').submit();" class='btn btn-success btn-sm'>Donations are appreciated (click here, use paypal)</a></form></li>
+          </ul>
+          
+          <br><hr id='comments'><br><h1>Comments / Questions / Answers</h1><br>
+          <div class="fb-comments" data-href="http://flwebsites.biz/jAlert" data-width="350px" data-numposts="100" data-colorscheme="light"></div>
+          <div id="fb-root"></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1395848047336800";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+          
+         <hr id='license'><br>
+          
         </div>
       </div>
       
@@ -117,44 +514,184 @@ staticAlert&#40;'ERROR!', 'You better fix it soon or you\'ll lose your customer!
 			
 			THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.<br><br>
       	</div>
-      </div>
+      </div><br><br>
 
       <div class="footer">
-        <p>&copy; Versatility Werks 2014</p>
+      <hr>
+        <p>&copy; <a href='http://flwebsites.biz'>Versatility Werks</a> 2014</p>
       </div>
 
     </div> <!-- /container -->
 
 	<script src='https://code.jquery.com/jquery-2.0.3.min.js'></script>
 	<script src='https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js'></script>
-	<script src='jAlert-v1.js'></script>
+	<script src='jAlert-v2.js'></script>
 	<script>
-	$('body').on('click', '.ajaxAlert', function(e){
-	e.preventDefault();
-		ajaxAlert('Ajax Demo', 'ajax.php', 'sm', '', true, true, false, false);
+	$(function(){
+		$('body').scrollspy({ target: '.bs-sidenav' })
 	});
-	$('body').on('click', '.iframeAlert', function(e){
+	$('.iframeAlert').on('click', function(e){
 		e.preventDefault();
-		iframeAlert('iFrame Demo', 'https://nomoreagent.com', '600px', 'md', '', true, true, false, false);
-	});
-	$('body').on('click', '.photoAlert', function(e){
-		e.preventDefault();
-		showPic('http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg', 'lg');
-	});
-	$('body').on('click', '.staticAlert', function(e){
-		e.preventDefault();
-		staticAlert('Successful Demo', 'You\'re in awe now aren\'t you?', 'sm', '', true, true, false, false);
-	});
-	$('body').on('click', '.successAlert', function(e){
-		e.preventDefault();
-		staticAlert('Success! You did it!', 'So, now you know how to make your customer feel like they did a great job!', 'sm jSuccess', '', true, true, false);
-	});
-	$('body').on('click', '.errorAlert', function(e){
-		e.preventDefault();
-		staticAlert('ERROR!', 'You better fix it soon or you\'ll lose your customer!', 'sm jError', '', true, true, false, false);
+		$.fn.jAlert({
+			'title':'iFrame of NoMoreAgent.com',
+			'iframeUrl': 'https://nomoreagent.com',
+			'iframeHeight': '600px',
+			'message': "<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'iFrame of NoMoreAgent.com',<br>&nbsp;&nbsp; 'iframeUrl': 'https://nomoreagent.com',<br>&nbsp;&nbsp; 'iframeHeight': '600px',<br>&nbsp;&nbsp; 'theme': 'dark',<br>&nbsp;&nbsp; 'clickAnywhere': false<br>});</pre>",
+			'theme': 'dark',
+			'clickAnywhere': false
+		});
 	});
 	
+	$('.ajaxAlert').on('click', function(e){
+		e.preventDefault();
+		$.fn.jAlert({
+			'title':'Ajaxed Content Yo!',
+			'ajaxUrl': 'ajax.php',
+			'message': "<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Ajaxed Content Yo!',<br>&nbsp;&nbsp; 'ajaxUrl': 'ajax.php',<br>&nbsp;&nbsp; 'clickAnywhere': false<br>&nbsp;&nbsp; }); </pre>",
+			'clickAnywhere': false
+		});
+	});
+
+	$('.photoAlert').on('click', function(e){
+		e.preventDefault();
+		$.fn.jAlert({
+			'imgUrl': 'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg',
+			'message': "<br><b>Can add a title/header, or make it larger/full-screen!</b><br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;imgUrl: 'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg',<br>&nbsp;&nbsp;size: large<br>}</pre>",
+			'clickAnywhere': false
+		});
+	});
+
+	$('.staticAlert').on('click', function(e){
+		e.preventDefault();
+		$.fn.jAlert({
+			'title':'Just a Static, Plain Alert',
+			'message': "You\'re in awe now aren\'t you?<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Just a Static, Plain Alert',<br>&nbsp;&nbsp; 'message': \"You're in awe now aren't you?\"<br> });</pre><br><b>Optionally overwrite javascript's built-in alert function:</b><br><br><pre>alert(\"You're in awe now aren't you?\");",
+			'clickAnywhere': false
+		});
+	});
+
+	$('.errorAlert').on('click', function(e){
+		e.preventDefault();
+		$.fn.jAlert({
+			'title':'Error!',
+			'message': "Your username and password do not match.<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Error!',<br>&nbsp;&nbsp; 'message': 'Your username and password do not match.',<br>&nbsp;&nbsp; 'theme': 'error',<br>&nbsp;&nbsp; 'clickAnywhere': false<br> });</pre>",
+			'theme': 'error',
+			'clickAnywhere': false
+		});
+	});
 	
+	$('.successAlert').on('click', function(e){
+		e.preventDefault();
+		$.fn.jAlert({
+			'title':'Success!',
+			'message': "Your click was saved.<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Success!',<br>&nbsp;&nbsp; 'message': 'Your click was saved.',<br>&nbsp;&nbsp; 'theme': 'success',<br>&nbsp;&nbsp; 'clickAnywhere': false<br> });</pre>",
+			'theme': 'success',
+			'clickAnywhere': false
+		});
+	});
+
+	$('.uncloseableAlert').on('click', function(e){
+		e.preventDefault();
+		$.fn.jAlert({
+		'title':'This Sucks...',
+		'message': 'Cannot close this one :)'+"<br><br><b>Copy this Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Oh No!',<br>&nbsp;&nbsp; 'message': 'Cannot close this one :)'<br>&nbsp;&nbsp; 'size':'small',<br>&nbsp;&nbsp; 'theme':'error',<br>&nbsp;&nbsp; 'closeBtn': false,<br>&nbsp;&nbsp; 'clickAnywhere': false,<br>&nbsp;&nbsp; 'hideOnEsc': false,<br> });</pre><br><b>Refresh the page to remove this alert</b>",
+		'size':'small',
+		'theme':'error',
+		'closeBtn': false,
+		'clickAnywhere': false,
+		'hideOnEsc': false
+		});
+	});
+
+	$('.openCallbackAlert').on('click', function(e){
+		e.preventDefault();
+		$.fn.jAlert({
+			'title':'Open Callback',
+			'message': "When this finishes opening, we'll know ;)<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Open Callback',<br>&nbsp;&nbsp; 'message': 'When this finishes opening, we'll know ;)',<br>&nbsp;&nbsp; 'clickAnywhere': false,<br>&nbsp;&nbsp; 'onOpen': function(elem){<br>&nbsp;&nbsp;&nbsp;&nbsp; console.log('You opened the alert! :)');<br>&nbsp;&nbsp; }<br> });</pre>",
+			'clickAnywhere': false,
+			'onOpen': function(elem){
+				console.log('You opened the alert! :)');	
+			}
+		});
+	});
+
+	$('.closeCallbackAlert').on('click', function(e){
+		e.preventDefault();
+		$.fn.jAlert({
+			'title':'Close Callback',
+			'message': "When this is closed, we'll know ;)<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Close Callback',<br>&nbsp;&nbsp; 'message': 'When this is closed, we'll know ;)',<br>&nbsp;&nbsp; 'clickAnywhere': false,<br>&nbsp;&nbsp; 'onClose': function(elem){<br>&nbsp;&nbsp;&nbsp;&nbsp; console.log('You closed the alert! :(');<br>&nbsp;&nbsp; }<br> });</pre>",
+			'clickAnywhere': false,
+			'onClose': function(elem){
+				console.log('You closed the alert! :(');	
+			}
+		});
+	});
+	
+	$('.withButtonsAlert').on('click', function(e){
+		e.preventDefault();
+		$.fn.jAlert({
+			'title':'Alert with Buttons',
+			'message': "Various buttons, centered - 100% width on mobile!<br><br><b>Copy this Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Alert with Buttons',<br>&nbsp;&nbsp; 'message': 'Various buttons, centered - 100% width on mobile!',<br>&nbsp;&nbsp; 'theme':'dark',<br>&nbsp;&nbsp; 'size':'large',<br>&nbsp;&nbsp; 'btn': [<br>&nbsp;&nbsp;&nbsp;&nbsp;{ 'label': 'Open Google (New Window)',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'class': 'green',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'href': 'http://google.com',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'target': 'blank',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'closeOnClick': false<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },<br>&nbsp;&nbsp;&nbsp;&nbsp; { 'label': 'Another Alert (Cover)',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'class': 'blue',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'onClick': function(){ $.fn.jAlert({ 'title': 'New jAlert', 'message': 'I was prompted by clicking in another jAlert!', 'theme': 'success' }); },<br>&nbsp;&nbsp;&nbsp;&nbsp; 'closeOnClick': false<br>&nbsp;&nbsp;&nbsp;&nbsp; },<br>&nbsp;&nbsp;&nbsp;&nbsp; { 'label': 'Another Alert (Replace)',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'class': 'blue',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'onClick': function(){ $.fn.jAlert({ 'title': 'New jAlert', 'message': 'I was prompted by clicking in another jAlert!', 'theme': 'success' }); },<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'closeOnClick': true<br>&nbsp;&nbsp;&nbsp;&nbsp; },<br>&nbsp;&nbsp;&nbsp;&nbsp; { 'label': 'Click Callback',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'class': 'red',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'onClick': function(){ console.log('You clicked something bad'); },<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'closeOnClick': false <br>&nbsp;&nbsp;&nbsp;&nbsp; },<br>&nbsp;&nbsp;&nbsp;&nbsp; { 'label': 'Close' }<br>&nbsp;&nbsp;],<br>&nbsp;&nbsp; 'closeBtn': false,<br>&nbsp;&nbsp; 'autofocus': 'btn:last'<br>});</pre><br>",
+			'theme':'dark',
+			'size':'large',
+			'btn': [
+			     { 
+			     'label': 'Open Google (New Window)', 
+			     'class': 'green', 
+			     'href': 'http://google.com',
+			     'target': 'blank', 
+			     'closeOnClick': false
+			     },
+			     { 
+			     'label': 'Another Alert (Cover)',
+			     'class': 'blue',
+			     'onClick': function(){
+				  	$.fn.jAlert({ 'title': 'New jAlert', 'message': 'I was prompted by clicking in another jAlert!', 'theme': 'success' });   
+			     },
+			     'closeOnClick': false
+			     },
+			     { 
+			     'label': 'Another Alert (Replace)',
+			     'class': 'blue',
+			     'onClick': function(){
+				  	$.fn.jAlert({ 'title': 'New jAlert', 'message': 'I was prompted by clicking in another jAlert!', 'theme': 'success' });   
+			     },
+			     'closeOnClick': true
+			     },
+			     { 
+			     'label': 'Click Callback',
+			     'class': 'red',
+			     'onClick': function(){
+				  	console.log('You clicked something bad');   
+			     },
+			     'closeOnClick': false
+			     },
+			     { 
+			     'label': 'Close'
+			     }
+			],
+			'closeBtn': false,
+			'autofocus': 'btn:last'
+		});		
+	});
+
+$('.autofocusDemo').on('click', function(e){
+		e.preventDefault();
+		$.fn.jAlert({ 'title': 'Auto-focus on an Anchor', 'message': 'I am auto-focused on an anchor in the content, but I could be any DOM element in the alert you would like, OR you can use btn:first or btn:last to set it to one of the buttons you will learn about in the next section. <a class="btn btn-primary">HI</a>', 'autofocus': '.btn'});
+		});
+		
+		$('.showExisting').on('click', function(e){
+		e.preventDefault();
+			$.fn.jAlert({ //create an alert
+				'title': 'Show / Hide Existing',
+				'message': 'This will hide immediately, and reopen in 2 seconds',
+				'onOpen': function(alert){ //when the alert opens
+					alert.closeAlert(false); //the false means don't remove it, just hide it.
+					setTimeout(function(){ alert.showAlert(); }, 2000);
+				}
+			});
+		});
+
 	  /* Google Analytics */
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-7474189-3']);
@@ -179,5 +716,7 @@ staticAlert&#40;'ERROR!', 'You better fix it soon or you\'ll lose your customer!
   });
 </script>
 <!-- AddThis Smart Layers END -->
+    </div>
+    </div>
   </body>
 </html>

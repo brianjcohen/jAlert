@@ -1,1 +1,1 @@
-I'm some ajaxed content! yay!
+I came from Ajax.php :)
