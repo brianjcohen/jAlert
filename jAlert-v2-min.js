@@ -44,4 +44,4 @@ alert.initialize=function(){if(!options.message&&!options.ajaxUrl&&!options.ifra
 return showJAlert(content);});}else if(options.iframeUrl){content="<iframe style='border: 0px; height: "+options.iframeHeight+"; width: 100%;' src='"+options.iframeUrl+"'></iframe>";if(options.message){content+=options.message;}
 return showJAlert(content);}else if(options.imgUrl){content="<div style='text-align: center;'><img style='border: 0px; max-width: 100%;' src='"+options.imgUrl+"'></div>";if(options.message){content+=options.message;}
 return showJAlert(content);}else if(options.message){return showJAlert(options.message);}}
-return alert.initialize();}})(jQuery);function alert(msg){$.fn.alert({'message':msg});}
+return alert.initialize();}})(jQuery);function alert(msg){$.fn.jAlert({'message':msg});}

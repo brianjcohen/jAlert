@@ -265,7 +265,7 @@ $.fn.jAlert = function(options) {
 
 /* Optional: Overwrites javascript's built-in alert function */
 function alert(msg){
-	$.fn.alert({
+	$.fn.jAlert({
 		'message': msg
 	});
 }
