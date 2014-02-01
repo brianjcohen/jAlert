@@ -33,7 +33,7 @@ $.fn.jAlert = function(options) {
 		id: false,
 		theme: false,
 		size: false,
-		clickAnywhere: true,
+		clickAnywhere: false,
 		hideOnEsc: true,
 		closeBtn: true,
 		btn: false,

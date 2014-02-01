@@ -4,7 +4,7 @@
 	MIT Licensed
 */
 ;(function($){$('body').append("<div id='jAlertBack'></div>");$jAlertBack=$('#jAlertBack');$.fn.jAlert=function(options){var alert=this;if(alert.length>1){alert.each(function(){$(this).jAlert(options)});return this;}
-var defaultOptions={title:false,message:false,imgUrl:false,ajaxUrl:false,iframeUrl:false,iframeHeight:false,class:false,id:false,theme:false,size:false,clickAnywhere:true,hideOnEsc:true,closeBtn:true,btn:false,autofocus:false,onClose:false,onOpen:false}
+var defaultOptions={title:false,message:false,imgUrl:false,ajaxUrl:false,iframeUrl:false,iframeHeight:false,class:false,id:false,theme:false,size:false,clickAnywhere:false,hideOnEsc:true,closeBtn:true,btn:false,autofocus:false,onClose:false,onOpen:false}
 options=$.extend({},defaultOptions,options);if(options.theme){if(options.theme=='dark'){options.class+=' jDark';}else if(options.theme=='error'){options.class+=' jError';}else if(options.theme=='success'){options.class+=' jSuccess';}else if(options.theme=='info'){options.class+=' jInfo';}}
 if(options.size){if(options.size=='small'||options.size=='sm'){options.class+=' sm';}else if(options.size=='medium'||options.size=='md'){options.class+=' md';}else if(options.size=='large'||options.size=='lg'){options.class+=' lg';}else if(options.size=='full'){options.class+=' full';}}
 if(typeof options.btn=='object'||typeof options.onClose=='function'||options.autofocus){options.clickAnywhere=false;}else{options.btn=false;}

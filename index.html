@@ -236,11 +236,12 @@ $.fn.jAlert({
 	'message': '&lt;br&gt;&lt;br&gt;Optionally, you can append content to the alert.'
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'imgUrl':'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'imgUrl':'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg', 'clickAnywhere': true })" style="float:right">Demo</a>
 		<h4>Image Content Without Header</h4><br>
 <pre>
 $.fn.jAlert({
-	'imgUrl': 'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg'
+	'imgUrl': 'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg', 
+	'clickAnywhere': true
 });
 </pre>
 <br><hr id='closeOptions'><br><h1>Close Options</h1>
@@ -253,16 +254,16 @@ $.fn.jAlert({
 	'closeBtn': false
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Click the X to close this Alert', 'message': 'Or you can press the ESC button.', 'clickAnywhere': false })" style="float:right">Demo</a>
-		<h4>Disable Close When You Click Anywhere</h4><br>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Click the X to close this Alert', 'message': 'Or you can press the ESC button.', 'clickAnywhere': true })" style="float:right">Demo</a>
+		<h4>Enable Close When You Click Anywhere</h4><br>
 <pre>
 $.fn.jAlert({
 	'title': 'Click the X to close this alert',
-	'message': 'Or you can press the ESC button.',
-	'clickAnywhere': false
+	'message': 'Or you can press the ESC button.', 
+	'clickAnywhere': true
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Click the X or Anywhere Else', 'message': 'Clicking ESC will not do anything.', 'clickAnywhere': false })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Click the X or Anywhere Else', 'message': 'Clicking ESC will not do anything.' })" style="float:right">Demo</a>
 		<h4>Disable Close When You Click ESC</h4><br>
 <pre>
 $.fn.jAlert({
@@ -271,14 +272,13 @@ $.fn.jAlert({
 	'hideOnEsc': false
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'You cannot close this Alert', 'message': 'Refresh your page to close this alert (you can add buttons that will close it if you would like. For instance, forcing someone to like your facebook page before they can view the page)', 'clickAnywhere': false, 'hideOnEsc': false, 'closeBtn': false })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'You cannot close this Alert', 'message': 'Refresh your page to close this alert (you can add buttons that will close it if you would like. For instance, forcing someone to like your facebook page before they can view the page)', 'hideOnEsc': false, 'closeBtn': false })" style="float:right">Demo</a>
 		<h4>Disabled All Close Options</h4><br>
 <pre>
 $.fn.jAlert({
 	'title': 'You cannot close this Alert',
 	'message': 'Refresh your page to close this alert (you can add buttons that will close it if you would like. For instance, forcing someone to like your facebook page before they can view the page)',
 	'hideOnEsc': false,
-	'clickAnywhere': false,
 	'closeBtn': false
 });
 </pre>
@@ -536,9 +536,8 @@ $.fn.jAlert({
 			'title':'iFrame of NoMoreAgent.com',
 			'iframeUrl': 'https://nomoreagent.com',
 			'iframeHeight': '600px',
-			'message': "<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'iFrame of NoMoreAgent.com',<br>&nbsp;&nbsp; 'iframeUrl': 'https://nomoreagent.com',<br>&nbsp;&nbsp; 'iframeHeight': '600px',<br>&nbsp;&nbsp; 'theme': 'dark',<br>&nbsp;&nbsp; 'clickAnywhere': false<br>});</pre>",
-			'theme': 'dark',
-			'clickAnywhere': false
+			'message': "<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'iFrame of NoMoreAgent.com',<br>&nbsp;&nbsp; 'iframeUrl': 'https://nomoreagent.com',<br>&nbsp;&nbsp; 'iframeHeight': '600px',<br>&nbsp;&nbsp; 'theme': 'dark'<br>});</pre>",
+			'theme': 'dark'
 		});
 	});
 	
@@ -547,8 +546,7 @@ $.fn.jAlert({
 		$.fn.jAlert({
 			'title':'Ajaxed Content Yo!',
 			'ajaxUrl': 'ajax.php',
-			'message': "<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Ajaxed Content Yo!',<br>&nbsp;&nbsp; 'ajaxUrl': 'ajax.php',<br>&nbsp;&nbsp; 'clickAnywhere': false<br>&nbsp;&nbsp; }); </pre>",
-			'clickAnywhere': false
+			'message': "<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Ajaxed Content Yo!',<br>&nbsp;&nbsp; 'ajaxUrl': 'ajax.php'<br>&nbsp;&nbsp; }); </pre>"
 		});
 	});
 
@@ -556,8 +554,7 @@ $.fn.jAlert({
 		e.preventDefault();
 		$.fn.jAlert({
 			'imgUrl': 'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg',
-			'message': "<br><b>Can add a title/header, or make it larger/full-screen!</b><br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;imgUrl: 'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg',<br>&nbsp;&nbsp;size: large<br>}</pre>",
-			'clickAnywhere': false
+			'message': "<br><b>Can add a title/header, or make it larger/full-screen!</b><br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;imgUrl: 'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg',<br>&nbsp;&nbsp;size: large<br>}</pre>"
 		});
 	});
 
@@ -565,8 +562,7 @@ $.fn.jAlert({
 		e.preventDefault();
 		$.fn.jAlert({
 			'title':'Just a Static, Plain Alert',
-			'message': "You\'re in awe now aren\'t you?<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Just a Static, Plain Alert',<br>&nbsp;&nbsp; 'message': \"You're in awe now aren't you?\"<br> });</pre><br><b>Optionally overwrite javascript's built-in alert function:</b><br><br><pre>alert(\"You're in awe now aren't you?\");",
-			'clickAnywhere': false
+			'message': "You\'re in awe now aren\'t you?<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Just a Static, Plain Alert',<br>&nbsp;&nbsp; 'message': \"You're in awe now aren't you?\"<br> });</pre><br><b>Optionally overwrite javascript's built-in alert function:</b><br><br><pre>alert(\"You're in awe now aren't you?\");"
 		});
 	});
 
@@ -574,9 +570,8 @@ $.fn.jAlert({
 		e.preventDefault();
 		$.fn.jAlert({
 			'title':'Error!',
-			'message': "Your username and password do not match.<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Error!',<br>&nbsp;&nbsp; 'message': 'Your username and password do not match.',<br>&nbsp;&nbsp; 'theme': 'error',<br>&nbsp;&nbsp; 'clickAnywhere': false<br> });</pre>",
-			'theme': 'error',
-			'clickAnywhere': false
+			'message': "Your username and password do not match.<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Error!',<br>&nbsp;&nbsp; 'message': 'Your username and password do not match.',<br>&nbsp;&nbsp; 'theme': 'error'<br> });</pre>",
+			'theme': 'error'
 		});
 	});
 	
@@ -584,9 +579,8 @@ $.fn.jAlert({
 		e.preventDefault();
 		$.fn.jAlert({
 			'title':'Success!',
-			'message': "Your click was saved.<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Success!',<br>&nbsp;&nbsp; 'message': 'Your click was saved.',<br>&nbsp;&nbsp; 'theme': 'success',<br>&nbsp;&nbsp; 'clickAnywhere': false<br> });</pre>",
-			'theme': 'success',
-			'clickAnywhere': false
+			'message': "Your click was saved.<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Success!',<br>&nbsp;&nbsp; 'message': 'Your click was saved.',<br>&nbsp;&nbsp; 'theme': 'success'<br> });</pre>",
+			'theme': 'success'
 		});
 	});
 
@@ -594,11 +588,10 @@ $.fn.jAlert({
 		e.preventDefault();
 		$.fn.jAlert({
 		'title':'This Sucks...',
-		'message': 'Cannot close this one :)'+"<br><br><b>Copy this Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Oh No!',<br>&nbsp;&nbsp; 'message': 'Cannot close this one :)'<br>&nbsp;&nbsp; 'size':'small',<br>&nbsp;&nbsp; 'theme':'error',<br>&nbsp;&nbsp; 'closeBtn': false,<br>&nbsp;&nbsp; 'clickAnywhere': false,<br>&nbsp;&nbsp; 'hideOnEsc': false,<br> });</pre><br><b>Refresh the page to remove this alert</b>",
+		'message': 'Cannot close this one :)'+"<br><br><b>Copy this Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Oh No!',<br>&nbsp;&nbsp; 'message': 'Cannot close this one :)'<br>&nbsp;&nbsp; 'size':'small',<br>&nbsp;&nbsp; 'theme':'error',<br>&nbsp;&nbsp; 'closeBtn': false,<br>&nbsp;&nbsp; 'hideOnEsc': false,<br> });</pre><br><b>Refresh the page to remove this alert</b>",
 		'size':'small',
 		'theme':'error',
-		'closeBtn': false,
-		'clickAnywhere': false,
+		'closeBtn': false
 		'hideOnEsc': false
 		});
 	});
@@ -607,8 +600,7 @@ $.fn.jAlert({
 		e.preventDefault();
 		$.fn.jAlert({
 			'title':'Open Callback',
-			'message': "When this finishes opening, we'll know ;)<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Open Callback',<br>&nbsp;&nbsp; 'message': 'When this finishes opening, we'll know ;)',<br>&nbsp;&nbsp; 'clickAnywhere': false,<br>&nbsp;&nbsp; 'onOpen': function(elem){<br>&nbsp;&nbsp;&nbsp;&nbsp; console.log('You opened the alert! :)');<br>&nbsp;&nbsp; }<br> });</pre>",
-			'clickAnywhere': false,
+			'message': "When this finishes opening, we'll know ;)<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Open Callback',<br>&nbsp;&nbsp; 'message': 'When this finishes opening, we'll know ;)',<br>&nbsp;&nbsp; 'onOpen': function(elem){<br>&nbsp;&nbsp;&nbsp;&nbsp; console.log('You opened the alert! :)');<br>&nbsp;&nbsp; }<br> });</pre>",
 			'onOpen': function(elem){
 				console.log('You opened the alert! :)');	
 			}
@@ -619,8 +611,7 @@ $.fn.jAlert({
 		e.preventDefault();
 		$.fn.jAlert({
 			'title':'Close Callback',
-			'message': "When this is closed, we'll know ;)<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Close Callback',<br>&nbsp;&nbsp; 'message': 'When this is closed, we'll know ;)',<br>&nbsp;&nbsp; 'clickAnywhere': false,<br>&nbsp;&nbsp; 'onClose': function(elem){<br>&nbsp;&nbsp;&nbsp;&nbsp; console.log('You closed the alert! :(');<br>&nbsp;&nbsp; }<br> });</pre>",
-			'clickAnywhere': false,
+			'message': "When this is closed, we'll know ;)<br><br><b>Copy the Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Close Callback',<br>&nbsp;&nbsp; 'message': 'When this is closed, we'll know ;)',<br>&nbsp;&nbsp; 'onClose': function(elem){<br>&nbsp;&nbsp;&nbsp;&nbsp; console.log('You closed the alert! :(');<br>&nbsp;&nbsp; }<br> });</pre>",
 			'onClose': function(elem){
 				console.log('You closed the alert! :(');	
 			}
