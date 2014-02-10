@@ -303,7 +303,7 @@ $.fn.jAlert({
 		<br><br><a href="#" onclick="$.fn.jAlert({
 	'message': 'The button is green, but could be green, blue, or red.',
 	'btn': [
-		{'label':'Click Here', 'class': 'green', 'closeOnClick': true }
+		{'label':'Click Here', 'cssClass': 'green', 'closeOnClick': true }
 	],
 	'size': 'small', 
 	'autofocus': 'btn:first'
@@ -313,21 +313,21 @@ $.fn.jAlert({
 $.fn.jAlert({
 	'message': 'The button is green, but could be green, blue, or red.',
 	'btn': [
-		{'label':'Click Here', 'class': 'green', 'closeOnClick': true }
+		{'label':'Click Here', 'cssClass': 'green', 'closeOnClick': true }
 	],
 	'size': 'small', 
 	'autofocus': 'btn:first'
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({'message': 'Rainbow :D','btn': [{'label':'Click Here', 'class': 'green', 'closeOnClick': true },{'label':'OR HERE', 'class': 'blue', 'closeOnClick': true },{'label':'Maybe Here?', 'class': 'red', 'closeOnClick': true }], 'autofocus': 'btn:last'});" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({'message': 'Rainbow :D','btn': [{'label':'Click Here', 'cssClass': 'green', 'closeOnClick': true },{'label':'OR HERE', 'cssClass': 'blue', 'closeOnClick': true },{'label':'Maybe Here?', 'cssClass': 'red', 'closeOnClick': true }], 'autofocus': 'btn:last'});" style="float:right">Demo</a>
 		<h4>Multiple Buttons</h4><br>
 <pre>
 $.fn.jAlert({
 	'message': 'Rainbow :D',
 	'btn': [
-		{'label':'Click Here', 'class': 'green', 'closeOnClick': true },
-		{'label':'OR HERE', 'class': 'blue', 'closeOnClick': true },
-		{'label':'Maybe Here?', 'class': 'red', 'closeOnClick': true }
+		{'label':'Click Here', 'cssClass': 'green', 'closeOnClick': true },
+		{'label':'OR HERE', 'cssClass': 'blue', 'closeOnClick': true },
+		{'label':'Maybe Here?', 'cssClass': 'red', 'closeOnClick': true }
 	],
 	'autofocus': 'btn:last'
 });
@@ -335,7 +335,7 @@ $.fn.jAlert({
 		<br><br><a href="#" onclick="$.fn.jAlert({
 	'message': 'Click 4 Console',
 	'btn': [
-		{'label':'Click Here', 'class': 'green', 'closeOnClick': false, 'onClick': function(){ console.log('Hi there!'); } }
+		{'label':'Click Here', 'cssClass': 'green', 'closeOnClick': false, 'onClick': function(){ console.log('Hi there!'); } }
 	]
 });" style="float:right">Demo</a>
 		<h4>Button CallBack</h4><br>
@@ -343,14 +343,14 @@ $.fn.jAlert({
 $.fn.jAlert({
 	'message': 'Click 4 Console',
 	'btn': [
-		{'label':'Click Here', 'class': 'green', 'closeOnClick': false, 'onClick': function(){ console.log('Hi there!'); } }
+		{'label':'Click Here', 'cssClass': 'green', 'closeOnClick': false, 'onClick': function(){ console.log('Hi there!'); } }
 	]
 });
 </pre>
 		<br><br><a href="#" onclick="$.fn.jAlert({
 	'message': 'Replace Me',
 	'btn': [
-		{'label':'Do It', 'class': 'blue', 'closeOnClick': true, 'onClick': function(){$.fn.jAlert({'message':'DONE', 'title':'Lookin Good!', 'theme': 'info'}); } }
+		{'label':'Do It', 'cssClass': 'blue', 'closeOnClick': true, 'onClick': function(){$.fn.jAlert({'message':'DONE', 'title':'Lookin Good!', 'theme': 'info'}); } }
 	]
 });" style="float:right">Demo</a>
 		<h4>Open another Alert (Replace)</h4>
@@ -359,14 +359,14 @@ $.fn.jAlert({
 $.fn.jAlert({
 	'message': 'Replace Me',
 	'btn': [
-		{'label':'Do It', 'class': 'blue', 'closeOnClick': true, 'onClick': function(){$.fn.jAlert({'message':'DONE', 'title':'Success!', 'theme': 'success'}); } }
+		{'label':'Do It', 'cssClass': 'blue', 'closeOnClick': true, 'onClick': function(){$.fn.jAlert({'message':'DONE', 'title':'Success!', 'theme': 'success'}); } }
 	]
 });
 </pre>
 		<br><br><a href="#" onclick="$.fn.jAlert({
 	'message': 'Cover Me',
 	'btn': [
-		{'label':'Do It', 'class': 'blue', 'closeOnClick': false, 'onClick': function(){ $.fn.jAlert({'message':'DONE', 'title': 'Success!', 'theme': 'success'}); } }
+		{'label':'Do It', 'cssClass': 'blue', 'closeOnClick': false, 'onClick': function(){ $.fn.jAlert({'message':'DONE', 'title': 'Success!', 'theme': 'success'}); } }
 	]
 });" style="float:right">Demo</a>
 		<h4>Open another Alert (On Top)</h4>
@@ -375,7 +375,7 @@ $.fn.jAlert({
 $.fn.jAlert({
 	'message': 'Cover Me',
 	'btn': [
-		{'label':'Do It', 'class': 'blue', 'closeOnClick': false, 'onClick': function(){ $.fn.jAlert({'message':'DONE', 'title':'Success!', 'theme': 'success'}); } }
+		{'label':'Do It', 'cssClass': 'blue', 'closeOnClick': false, 'onClick': function(){ $.fn.jAlert({'message':'DONE', 'title':'Success!', 'theme': 'success'}); } }
 	]
 });
 </pre>
@@ -389,13 +389,13 @@ $.fn.jAlert({
 	'size': 'small'
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Added CSS Class', 'message': 'I have an extra class (poo)', 'class': 'poo' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Added CSS Class', 'message': 'I have an extra class (poo)', 'cssClass': 'poo' })" style="float:right">Demo</a>
 		<h4>Adding Classes</h4><br>
 <pre>
 $.fn.jAlert({
 	'title': 'Added CSS Class',
 	'message': 'I have an extra class (poo)',
-	'class': 'poo'
+	'cssClass': 'poo'
 });
 </pre>
 		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Added CSS ID', 'message': 'I have an ID (poo)', 'id': 'poo' })" style="float:right">Demo</a>
@@ -622,20 +622,20 @@ $.fn.jAlert({
 		e.preventDefault();
 		$.fn.jAlert({
 			'title':'Alert with Buttons',
-			'message': "Various buttons, centered - 100% width on mobile!<br><br><b>Copy this Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Alert with Buttons',<br>&nbsp;&nbsp; 'message': 'Various buttons, centered - 100% width on mobile!',<br>&nbsp;&nbsp; 'theme':'dark',<br>&nbsp;&nbsp; 'size':'large',<br>&nbsp;&nbsp; 'btn': [<br>&nbsp;&nbsp;&nbsp;&nbsp;{ 'label': 'Open Google (New Window)',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'class': 'green',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'href': 'http://google.com',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'target': 'blank',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'closeOnClick': false<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },<br>&nbsp;&nbsp;&nbsp;&nbsp; { 'label': 'Another Alert (Cover)',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'class': 'blue',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'onClick': function(){ $.fn.jAlert({ 'title': 'New jAlert', 'message': 'I was prompted by clicking in another jAlert!', 'theme': 'success' }); },<br>&nbsp;&nbsp;&nbsp;&nbsp; 'closeOnClick': false<br>&nbsp;&nbsp;&nbsp;&nbsp; },<br>&nbsp;&nbsp;&nbsp;&nbsp; { 'label': 'Another Alert (Replace)',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'class': 'blue',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'onClick': function(){ $.fn.jAlert({ 'title': 'New jAlert', 'message': 'I was prompted by clicking in another jAlert!', 'theme': 'success' }); },<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'closeOnClick': true<br>&nbsp;&nbsp;&nbsp;&nbsp; },<br>&nbsp;&nbsp;&nbsp;&nbsp; { 'label': 'Click Callback',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'class': 'red',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'onClick': function(){ console.log('You clicked something bad'); },<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'closeOnClick': false <br>&nbsp;&nbsp;&nbsp;&nbsp; },<br>&nbsp;&nbsp;&nbsp;&nbsp; { 'label': 'Close' }<br>&nbsp;&nbsp;],<br>&nbsp;&nbsp; 'closeBtn': false,<br>&nbsp;&nbsp; 'autofocus': 'btn:last'<br>});</pre><br>",
+			'message': "Various buttons, centered - 100% width on mobile!<br><br><b>Copy this Demo:</b><br><br><pre>$.fn.jAlert({<br>&nbsp;&nbsp;'title':'Alert with Buttons',<br>&nbsp;&nbsp; 'message': 'Various buttons, centered - 100% width on mobile!',<br>&nbsp;&nbsp; 'theme':'dark',<br>&nbsp;&nbsp; 'size':'large',<br>&nbsp;&nbsp; 'btn': [<br>&nbsp;&nbsp;&nbsp;&nbsp;{ 'label': 'Open Google (New Window)',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'cssClass': 'green',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'href': 'http://google.com',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'target': 'blank',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'closeOnClick': false<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },<br>&nbsp;&nbsp;&nbsp;&nbsp; { 'label': 'Another Alert (Cover)',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'cssClass': 'blue',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'onClick': function(){ $.fn.jAlert({ 'title': 'New jAlert', 'message': 'I was prompted by clicking in another jAlert!', 'theme': 'success' }); },<br>&nbsp;&nbsp;&nbsp;&nbsp; 'closeOnClick': false<br>&nbsp;&nbsp;&nbsp;&nbsp; },<br>&nbsp;&nbsp;&nbsp;&nbsp; { 'label': 'Another Alert (Replace)',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'cssClass': 'blue',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'onClick': function(){ $.fn.jAlert({ 'title': 'New jAlert', 'message': 'I was prompted by clicking in another jAlert!', 'theme': 'success' }); },<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'closeOnClick': true<br>&nbsp;&nbsp;&nbsp;&nbsp; },<br>&nbsp;&nbsp;&nbsp;&nbsp; { 'label': 'Click Callback',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'cssClass': 'red',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'onClick': function(){ console.log('You clicked something bad'); },<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'closeOnClick': false <br>&nbsp;&nbsp;&nbsp;&nbsp; },<br>&nbsp;&nbsp;&nbsp;&nbsp; { 'label': 'Close' }<br>&nbsp;&nbsp;],<br>&nbsp;&nbsp; 'closeBtn': false,<br>&nbsp;&nbsp; 'autofocus': 'btn:last'<br>});</pre><br>",
 			'theme':'dark',
 			'size':'large',
 			'btn': [
 			     { 
 			     'label': 'Open Google (New Window)', 
-			     'class': 'green', 
+			     'cssClass': 'green', 
 			     'href': 'http://google.com',
 			     'target': 'blank', 
 			     'closeOnClick': false
 			     },
 			     { 
 			     'label': 'Another Alert (Cover)',
-			     'class': 'blue',
+			     'cssClass': 'blue',
 			     'onClick': function(){
 				  	$.fn.jAlert({ 'title': 'New jAlert', 'message': 'I was prompted by clicking in another jAlert!', 'theme': 'success' });   
 			     },
@@ -643,7 +643,7 @@ $.fn.jAlert({
 			     },
 			     { 
 			     'label': 'Another Alert (Replace)',
-			     'class': 'blue',
+			     'cssClass': 'blue',
 			     'onClick': function(){
 				  	$.fn.jAlert({ 'title': 'New jAlert', 'message': 'I was prompted by clicking in another jAlert!', 'theme': 'success' });   
 			     },
@@ -651,7 +651,7 @@ $.fn.jAlert({
 			     },
 			     { 
 			     'label': 'Click Callback',
-			     'class': 'red',
+			     'cssClass': 'red',
 			     'onClick': function(){
 				  	console.log('You clicked something bad');   
 			     },

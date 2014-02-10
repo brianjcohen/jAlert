@@ -4,9 +4,9 @@
 	MIT Licensed
 */
 ;(function($){$('body').append("<div id='jAlertBack'></div>");$jAlertBack=$('#jAlertBack');$.fn.jAlert=function(options){var alert=this;if(alert.length>1){alert.each(function(){$(this).jAlert(options)});return this;}
-var defaultOptions={title:false,message:false,imgUrl:false,ajaxUrl:false,iframeUrl:false,iframeHeight:false,class:false,id:false,theme:false,size:false,clickAnywhere:false,hideOnEsc:true,closeBtn:true,btn:false,autofocus:false,onClose:false,onOpen:false}
-options=$.extend({},defaultOptions,options);if(options.theme){if(options.theme=='dark'){options.class+=' jDark';}else if(options.theme=='error'){options.class+=' jError';}else if(options.theme=='success'){options.class+=' jSuccess';}else if(options.theme=='info'){options.class+=' jInfo';}}
-if(options.size){if(options.size=='small'||options.size=='sm'){options.class+=' sm';}else if(options.size=='medium'||options.size=='md'){options.class+=' md';}else if(options.size=='large'||options.size=='lg'){options.class+=' lg';}else if(options.size=='full'){options.class+=' full';}}
+var defaultOptions={title:false,message:false,imgUrl:false,ajaxUrl:false,iframeUrl:false,iframeHeight:false,cssClass:'',id:false,theme:false,size:false,clickAnywhere:false,hideOnEsc:true,closeBtn:true,btn:false,autofocus:false,onClose:false,onOpen:false}
+options=$.extend({},defaultOptions,options);if(options.theme){if(options.theme=='dark'){options.cssClass+=' jDark';}else if(options.theme=='error'){options.cssClass+=' jError';}else if(options.theme=='success'){options.cssClass+=' jSuccess';}else if(options.theme=='info'){options.cssClass+=' jInfo';}}
+if(options.size){if(options.size=='small'||options.size=='sm'){options.cssClass+=' sm';}else if(options.size=='medium'||options.size=='md'){options.cssClass+=' md';}else if(options.size=='large'||options.size=='lg'){options.cssClass+=' lg';}else if(options.size=='full'){options.cssClass+=' full';}}
 if(typeof options.btn=='object'||typeof options.onClose=='function'||options.autofocus){options.clickAnywhere=false;}else{options.btn=false;}
 if(options.autofocus=='btn:first'){options.autofocus='.jBtn:first';}
 if(options.autofocus=='btn:last'){options.autofocus='.jBtn:last';}
@@ -20,8 +20,7 @@ if(remove!=false){remove=true;}
 var instance=$(this);if(!overlap){$('.jAlertWrap:visible').closeAlert(remove);}
 $jAlertBack.fadeIn('fast');instance.show('fast');if(typeof onOpen=='function'){onOpen(instance);}}
 var showJAlert=function(content){$jAlertBack.fadeIn('fast');var div="<div class='jAlertWrap'";var topMost=$('.jAlertWrap:last')[0];if(typeof topMost!=='undefined'){var zIndex=parseInt(topMost.style.zIndex,10)+1;}else{zIndex=99999;}
-div+=" style='z-index: "+zIndex+"'><div class='jAlert";if(options.class){div+=' '+options.class;}
-if(!options.title){div+=' noTitle';}
+div+=" style='z-index: "+zIndex+"'><div class='jAlert";div+=' '+options.cssClass;if(!options.title){div+=' noTitle';}
 div+="'";if(options.id){div+=" id='"+options.id+"'";}
 div+="><div>";if(options.closeBtn){div+="<div class='closeAlert jClose'>X</div>";}
 if(options.title){div+="<div class='jTitle'><div>"+options.title+"</div></div>";}

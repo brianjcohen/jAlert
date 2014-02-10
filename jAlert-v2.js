@@ -29,7 +29,7 @@ $.fn.jAlert = function(options) {
 		ajaxUrl: false,
 		iframeUrl: false,
 		iframeHeight: false,
-		class: false,
+		cssClass: '',
 		id: false,
 		theme: false,
 		size: false,
@@ -48,26 +48,26 @@ $.fn.jAlert = function(options) {
 	/* Convert theme to a class */
 	if(options.theme){ 
 		if(options.theme == 'dark'){
-			options.class += ' jDark';
+			options.cssClass += ' jDark';
 		}else if(options.theme == 'error'){
-			options.class += ' jError';
+			options.cssClass += ' jError';
 		}else if(options.theme == 'success'){
-			options.class += ' jSuccess';
+			options.cssClass += ' jSuccess';
 		}else if(options.theme == 'info'){
-			options.class += ' jInfo';
+			options.cssClass += ' jInfo';
 		}
 	}
 	
 	/* Convert size to a class */
 	if(options.size){ 
 		if(options.size == 'small' || options.size == 'sm'){
-			options.class += ' sm';
+			options.cssClass += ' sm';
 		}else if(options.size == 'medium' || options.size == 'md'){
-			options.class += ' md';
+			options.cssClass += ' md';
 		}else if(options.size == 'large' || options.size == 'lg'){
-			options.class += ' lg';
+			options.cssClass += ' lg';
 		}else if(options.size == 'full'){
-			options.class += ' full';
+			options.cssClass += ' full';
 		}
 	}
 	
@@ -144,8 +144,8 @@ $.fn.jAlert = function(options) {
 		}
 		/* Set the new div's z-index as 1 higher than the highest */
 		div += " style='z-index: "+zIndex+"'><div class='jAlert";
-		/* Add any class */
-		if(options.class){ div += ' '+options.class; }
+		/* Add any classes */
+		div += ' '+options.cssClass;
 		/* If no title, add the noTitle class */
 		if(!options.title){ div += ' noTitle'; }
 		/* Close the class */
