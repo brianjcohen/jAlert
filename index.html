@@ -470,7 +470,7 @@ $.fn.jAlert({
 	<b>Example usage:</b> <pre>myAlert.closeAlert(false, function(){ console.log("I'm closed now, but only hidden!"); });</pre>
 <br><br>
 <b>.showAlert() accepts 3 arguments.</b> The first, is a boolean on whether or not to overlap other alerts, or hide them (true = overlap, false = hide all others). The second argument is only used if the first is true, and it is another boolean that determines whether or not to hide or remove completely any existing alerts (true = remove, false = hide). So if you'd like to temporarily hide all other alerts to show once, then manually show one again, this is for you! The third argument is an onOpen callback.<br><br>
-	<b>Example usage:</b> <pre>myAlert.openAlert(false, false, function(){ console.log("I just came from the dead and all other alerts were hidden to make room for me."); });</pre>
+	<b>Example usage:</b> <pre>myAlert.showAlert(false, false, function(){ console.log("I just came from the dead and all other alerts were hidden to make room for me."); });</pre>
 <br><br>
           <br><hr id='notes'><br><h1>Notes/Limitations</h1><br>
           <ul>
