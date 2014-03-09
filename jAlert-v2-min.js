@@ -3,7 +3,7 @@
 	Made with love by Versatility Werks (http://flwebsites.biz)
 	MIT Licensed
 */
-;(function($){$('body').append("<div id='jAlertBack'></div>");$jAlertBack=$('#jAlertBack');$.fn.jAlert=function(options){var alert=this;if(alert.length>1){alert.each(function(){$(this).jAlert(options)});return this;}
+$(function(){;(function($){$('body').append("<div id='jAlertBack'></div>");$jAlertBack=$('#jAlertBack');$.fn.jAlert=function(options){var alert=this;if(alert.length>1){alert.each(function(){$(this).jAlert(options)});return this;}
 var defaultOptions={title:false,message:false,imgUrl:false,ajaxUrl:false,iframeUrl:false,iframeHeight:false,cssClass:'',id:false,theme:false,size:false,clickAnywhere:false,hideOnEsc:true,closeBtn:true,btn:false,autofocus:false,onClose:false,onOpen:false}
 options=$.extend({},defaultOptions,options);if(options.theme){if(options.theme=='dark'){options.cssClass+=' jDark';}else if(options.theme=='error'){options.cssClass+=' jError';}else if(options.theme=='success'){options.cssClass+=' jSuccess';}else if(options.theme=='info'){options.cssClass+=' jInfo';}}
 if(options.size){if(options.size=='small'||options.size=='sm'){options.cssClass+=' sm';}else if(options.size=='medium'||options.size=='md'){options.cssClass+=' md';}else if(options.size=='large'||options.size=='lg'){options.cssClass+=' lg';}else if(options.size=='full'){options.cssClass+=' full';}}
@@ -43,4 +43,4 @@ alert.initialize=function(){if(!options.message&&!options.ajaxUrl&&!options.ifra
 return showJAlert(content);});}else if(options.iframeUrl){content="<iframe style='border: 0px; height: "+options.iframeHeight+"; width: 100%;' src='"+options.iframeUrl+"'></iframe>";if(options.message){content+=options.message;}
 return showJAlert(content);}else if(options.imgUrl){content="<div style='text-align: center;'><img style='border: 0px; max-width: 100%;' src='"+options.imgUrl+"'></div>";if(options.message){content+=options.message;}
 return showJAlert(content);}else if(options.message){return showJAlert(options.message);}}
-return alert.initialize();}})(jQuery);function alert(msg){$.fn.jAlert({'message':msg});}
+return alert.initialize();}})(jQuery);});function alert(msg){$.fn.jAlert({'message':msg});}

@@ -4,6 +4,8 @@
 	MIT Licensed
 */
 
+$(function(){
+
 ;(function($){
 
 /* Add the jConfirm background div and holder div (if not exists) */
@@ -262,6 +264,8 @@ $.fn.jAlert = function(options) {
     return alert.initialize();
 }
 })(jQuery);
+
+});
 
 /* Optional: Overwrites javascript's built-in alert function */
 function alert(msg){
