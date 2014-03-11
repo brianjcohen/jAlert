@@ -176,14 +176,22 @@ $.fn.jAlert = function(options) {
   		}
   		/* Close all jAlert/wrapper divs */
   		div += "</div></div></div></div>";
-  		/* Scroll to top */
-  		$('html, body').animate({ scrollTop: 0 }, 'fast');
   		/* Turn the HTML into an element */
 	  	var div = $(div);
 	  	/* Append the new element to the body */
 	  	div.appendTo('body');
 	  	/* Show it */
 	  	div.show('fast');
+	  	/* Height of window + height of margin above modal */
+	  	var winHeight = $('body').height() + 100;
+	  	/* If height of window + margin is shorter than the modal, scroll to top and keep position: absolute */
+	  	if(div.find('.jAlert').height() > winHeight){
+  			/* Scroll to top */
+  			$('html, body').animate({ scrollTop: 0 }, 'fast');
+  		}else{
+  			/* Show the modal fixed */
+	  		div.css('position', 'fixed');
+  		}
 	  	/* Add on click handlers for closing, hiding when you click anywhere, the ok button, and the cancel button */
 	  	if(options.closeBtn){
 		  	div.find('.closeAlert').on('click', function(e){
