@@ -29,7 +29,7 @@ if(typeof thisBtn['class']=='undefined'){thisBtn['class']='';}
 if(typeof thisBtn['label']=='undefined'){thisBtn['label']='';}
 if(typeof thisBtn['id']=='undefined'){thisBtn['id']='';}
 if(typeof thisBtn['target']=='undefined'){thisBtn['target']='self';}
-div+="<a href='"+thisBtn['href']+"' id='"+thisBtn['id']+"' target='"+thisBtn['target']+"' class='jBtn "+thisBtn['class']+"'>"+thisBtn['label']+"</a> ";});}
+div+="<a href='"+thisBtn['href']+"' id='"+thisBtn['id']+"' target='"+thisBtn['target']+"' class='jBtn "+thisBtn['cssClass']+"'>"+thisBtn['label']+"</a> ";});}
 div+="</div></div></div></div>";var div=$(div);div.appendTo('body').show('fast',function(){var thisAlert=div.find('.jAlert');var divHeight=thisAlert.innerHeight();var winHeight=$(window).height();if(winHeight<500){var margin=20;}else{var margin=100;}
 thisAlert.css('margin-top',margin+'px');winHeight=winHeight-margin;if(divHeight>winHeight){$('html, body').animate({scrollTop:0},'fast');}else{div.css('position','fixed');}});if(options.closeBtn){div.find('.closeAlert').on('click',function(e){e.preventDefault();div.closeAlert(true);});}
 if(options.clickAnywhere){$(document).on('mouseup',function(e){div.closeAlert(true);});}

@@ -59,6 +59,7 @@
 					    <li class=""><a href="#miscOptions">Miscellaneous</a></li>
 					    <li class=""><a href="#callbacks">CallBacks</a></li>
 					    <li class=""><a href="#publicFunctions">Public Functions</a></li>
+					    <li class=""><a href="#fbPopup">Optional FB Savings Popup</a></li>
 					  </ul>
 					</li>
 					<li>
@@ -472,6 +473,23 @@ $.fn.jAlert({
 <b>.showAlert() accepts 3 arguments.</b> The first, is a boolean on whether or not to overlap other alerts, or hide them (true = overlap, false = hide all others). The second argument is only used if the first is true, and it is another boolean that determines whether or not to hide or remove completely any existing alerts (true = remove, false = hide). So if you'd like to temporarily hide all other alerts to show once, then manually show one again, this is for you! The third argument is an onOpen callback.<br><br>
 	<b>Example usage:</b> <pre>myAlert.showAlert(false, false, function(){ console.log("I just came from the dead and all other alerts were hidden to make room for me."); });</pre>
 <br><br>
+<br><hr id='fbPopup'><br><h1>Optional Facebook Savings Popup</h1>
+		<br><br><div style='text-align:right;'>Demo by pushing the red button on the left</div>
+		<h4>This awesome popup displays a promo code after posting a custom message to your customer's Facebook wall.</h4>
+		<p>You'll need some Facebook APP Knowledge to set this up, but it should be fairly easy if you've ever created an app. IT IS dependent on JAlert, but could be easily converted to work with any modal</p>
+		<small>Customize it to do whatever you want after they connect via Facebook.</small><br>
+<a class='jSave'>
+SAVE 10% NOW!
+</a>
+<script src='jAlert-FB.js'></script>
+<link rel='stylesheet' href='jAlert-FB.css' />
+<pre>
+&lt;a class='jSave'&gt;
+SAVE 10% NOW!
+&lt;/a&gt;
+&lt;script src='jAlert-FB.js'&gt;&lt;/script&gt;
+&lt;link rel='stylesheet' href='jAlert-FB.css' /&gt;
+</pre><br><br>
           <br><hr id='notes'><br><h1>Notes/Limitations</h1><br>
           <ul>
           <li>To repeat: <b>jQuery is REQUIRED</b></li>

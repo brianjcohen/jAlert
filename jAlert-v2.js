@@ -171,7 +171,7 @@ $.fn.jAlert = function(options) {
   				if(typeof thisBtn['label'] == 'undefined'){ thisBtn['label'] = ''; }
   				if(typeof thisBtn['id'] == 'undefined'){ thisBtn['id'] = ''; }
   				if(typeof thisBtn['target'] == 'undefined'){ thisBtn['target'] = 'self'; }
-	  			div += "<a href='"+thisBtn['href']+"' id='"+thisBtn['id']+"' target='"+thisBtn['target']+"' class='jBtn "+thisBtn['class']+"'>"+thisBtn['label']+"</a> ";
+	  			div += "<a href='"+thisBtn['href']+"' id='"+thisBtn['id']+"' target='"+thisBtn['target']+"' class='jBtn "+thisBtn['cssClass']+"'>"+thisBtn['label']+"</a> ";
   			});
   		}
   		/* Close all jAlert/wrapper divs */
