@@ -30,8 +30,8 @@ if(typeof thisBtn['label']=='undefined'){thisBtn['label']='';}
 if(typeof thisBtn['id']=='undefined'){thisBtn['id']='';}
 if(typeof thisBtn['target']=='undefined'){thisBtn['target']='self';}
 div+="<a href='"+thisBtn['href']+"' id='"+thisBtn['id']+"' target='"+thisBtn['target']+"' class='jBtn "+thisBtn['class']+"'>"+thisBtn['label']+"</a> ";});}
-div+="</div></div></div></div>";var div=$(div);div.appendTo('body');div.show('fast');var winHeight=$('body').height()+100;if(div.find('.jAlert').height()>winHeight){$('html, body').animate({scrollTop:0},'fast');}else{div.css('position','fixed');}
-if(options.closeBtn){div.find('.closeAlert').on('click',function(e){e.preventDefault();div.closeAlert(true);});}
+div+="</div></div></div></div>";var div=$(div);div.appendTo('body').show('fast',function(){var thisAlert=div.find('.jAlert');var divHeight=thisAlert.innerHeight();var winHeight=$(window).height();if(winHeight<500){var margin=20;}else{var margin=100;}
+thisAlert.css('margin-top',margin+'px');winHeight=winHeight-margin;if(divHeight>winHeight){$('html, body').animate({scrollTop:0},'fast');}else{div.css('position','fixed');}});if(options.closeBtn){div.find('.closeAlert').on('click',function(e){e.preventDefault();div.closeAlert(true);});}
 if(options.clickAnywhere){$(document).on('mouseup',function(e){div.closeAlert(true);});}
 if(options.btn){$.each(div.find('.jBtn'),function(index,value){var thisBtn=options.btn[index];var onClick=thisBtn['onClick'];var href=thisBtn['href'];var closeOnClick=thisBtn['closeOnClick'];$(this).on('click',function(e){if(typeof href=='undefined'||href==''||href=='#'){e.preventDefault();}
 if(typeof onClick=='function'){onClick(div);}
