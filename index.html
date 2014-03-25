@@ -11,7 +11,6 @@
 	<link rel='stylesheet' type='text/css' href='https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'>
 	<link rel="stylesheet" type="text/css" href="jAlert-v2.css">
 	<style>
-	.fb-comments, .fb-comments span[style], .fb-comments iframe[style] {width: 100% !important;}
 	ul > li a{ color: #555; background: #f3f3f3; }
 	ul > li.active a{ background: #DBDBDB; color: #555; }
 	ul > li > ul > li.active a{ background: #555 !important; color: white !important; }
@@ -142,13 +141,13 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'message': 'Testing' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'message': 'Testing' }); ; return false;" style="float:right">Demo</a>
 		<h4>Basic Usage (Alert override <i>enabled</i>)</h4>
 		<small>Alert override enabled by default. <b>To disable</b>, delete it from the bottom of the jAlert JS file.</small><br>
 <pre>
 alert('Testing');
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'message': 'Testing' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'message': 'Testing' }); ; return false;" style="float:right">Demo</a>
 		<h4>Basic Usage (Alert override <i>disabled</i>)</h4><br>
 <pre>
 $.fn.jAlert({
@@ -156,7 +155,7 @@ $.fn.jAlert({
 });
 </pre>
 <br><hr id='headerOptions'><br><h1>Header Options</h1>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'jAlert with a header', 'message': 'Howdy :D' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'jAlert with a header', 'message': 'Howdy :D' }); ; return false;" style="float:right">Demo</a>
 		<h4>With a Header/Title</h4><br>
 <pre>
 $.fn.jAlert({
@@ -164,7 +163,7 @@ $.fn.jAlert({
 	'message': 'Howdy :D'
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Success', 'message': 'You did well!', 'theme':'success' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Success', 'message': 'You did well!', 'theme':'success' }); ; return false;" style="float:right">Demo</a>
 		<h4>With Success/Green Header</h4><br>
 <pre>
 $.fn.jAlert({
@@ -173,7 +172,7 @@ $.fn.jAlert({
 	'theme': 'success'
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Error', 'message': 'You suck!', 'theme':'error' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Error', 'message': 'You suck!', 'theme':'error' }); ; return false;" style="float:right">Demo</a>
 		<h4>With Error/Red Header</h4><br>
 <pre>
 $.fn.jAlert({
@@ -182,7 +181,7 @@ $.fn.jAlert({
 	'theme': 'error'
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Cool', 'message': 'I\'m feelin\' blue.', 'theme':'info' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Cool', 'message': 'I\'m feelin\' blue.', 'theme':'info' }); ; return false;" style="float:right">Demo</a>
 		<h4>With Info/Blue Header</h4><br>
 <pre>
 $.fn.jAlert({
@@ -191,7 +190,7 @@ $.fn.jAlert({
 	'theme': 'info'
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Darky', 'message': 'I guess you did alright.', 'theme':'dark' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Darky', 'message': 'I guess you did alright.', 'theme':'dark' }); ; return false;" style="float:right">Demo</a>
 		<h4>With Dark/Black Header</h4><br>
 <pre>
 $.fn.jAlert({
@@ -201,7 +200,7 @@ $.fn.jAlert({
 });
 </pre>
 <br><hr id='contentOptions'><br><h1>Content Options</h1>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Embedded / Static Message', 'message': 'I am passed to jAlert manually' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Embedded / Static Message', 'message': 'I am passed to jAlert manually' }); ; return false;" style="float:right">Demo</a>
 		<h4>Embedded / Static Message</h4><br>
 <pre>
 $.fn.jAlert({
@@ -209,7 +208,7 @@ $.fn.jAlert({
 	'message': 'I am passed to jAlert manually'
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'iFrame of NoMoreAgent.com', 'iframeUrl':'https://nomoreagent.com', 'iframeHeight': '600px;', 'message': '<br><br>Optionally, you can append content to the alert.' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'iFrame of NoMoreAgent.com', 'iframeUrl':'https://nomoreagent.com', 'iframeHeight': '600px;', 'message': '<br><br>Optionally, you can append content to the alert.' }); ; return false;" style="float:right">Demo</a>
 		<h4>iFramed Content</h4><br>
 <pre>
 $.fn.jAlert({
@@ -219,7 +218,7 @@ $.fn.jAlert({
 	'message': '&lt;br&gt;&lt;br&gt;Optionally, you can append content to the alert.'
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Ajaxed Content', 'ajaxUrl':'ajax.php', 'message': '<br><br>Optionally, you can append content to the alert.' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Ajaxed Content', 'ajaxUrl':'ajax.php', 'message': '<br><br>Optionally, you can append content to the alert.' }); ; return false;" style="float:right">Demo</a>
 		<h4>Ajaxed Content</h4><br>
 <pre>
 $.fn.jAlert({
@@ -228,7 +227,7 @@ $.fn.jAlert({
 	'message': '&lt;br&gt;&lt;br&gt;Optionally, you can append content to the alert.'
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Image Title', 'imgUrl':'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg', 'message': '<br><br>Optionally, you can append content to the alert.' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Image Title', 'imgUrl':'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg', 'message': '<br><br>Optionally, you can append content to the alert.' }); ; return false;" style="float:right">Demo</a>
 		<h4>Image Content (Basically a "LightBox" Alternative)</h4><br>
 <pre>
 $.fn.jAlert({
@@ -237,7 +236,7 @@ $.fn.jAlert({
 	'message': '&lt;br&gt;&lt;br&gt;Optionally, you can append content to the alert.'
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'imgUrl':'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg', 'clickAnywhere': true })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'imgUrl':'http://farm4.staticflickr.com/3533/3872606628_9591e05d16_o.jpg', 'clickAnywhere': true }); ; return false;" style="float:right">Demo</a>
 		<h4>Image Content Without Header</h4><br>
 <pre>
 $.fn.jAlert({
@@ -246,7 +245,7 @@ $.fn.jAlert({
 });
 </pre>
 <br><hr id='closeOptions'><br><h1>Close Options</h1>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'No close button', 'message': 'Where\'d it go? (click anywhere to close, or press ESC)','closeBtn':false })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'No close button', 'message': 'Where\'d it go? (click anywhere to close, or press ESC)','closeBtn':false }); ; return false;" style="float:right">Demo</a>
 		<h4>Hide Close Button (top right x)</h4><br>
 <pre>
 $.fn.jAlert({
@@ -255,7 +254,7 @@ $.fn.jAlert({
 	'closeBtn': false
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Click the X to close this Alert', 'message': 'Or you can press the ESC button.', 'clickAnywhere': true })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Click the X to close this Alert', 'message': 'Or you can press the ESC button.', 'clickAnywhere': true }); ; return false;" style="float:right">Demo</a>
 		<h4>Enable Close When You Click Anywhere</h4><br>
 <pre>
 $.fn.jAlert({
@@ -264,7 +263,7 @@ $.fn.jAlert({
 	'clickAnywhere': true
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Click the X or Anywhere Else', 'message': 'Clicking ESC will not do anything.' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Click the X or Anywhere Else', 'message': 'Clicking ESC will not do anything.' }); ; return false;" style="float:right">Demo</a>
 		<h4>Disable Close When You Click ESC</h4><br>
 <pre>
 $.fn.jAlert({
@@ -273,7 +272,7 @@ $.fn.jAlert({
 	'hideOnEsc': false
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'You cannot close this Alert', 'message': 'Refresh your page to close this alert (you can add buttons that will close it if you would like. For instance, forcing someone to like your facebook page before they can view the page)', 'hideOnEsc': false, 'closeBtn': false })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'You cannot close this Alert', 'message': 'Refresh your page to close this alert (you can add buttons that will close it if you would like. For instance, forcing someone to like your facebook page before they can view the page)', 'hideOnEsc': false, 'closeBtn': false }); ; return false;" style="float:right">Demo</a>
 		<h4>Disabled All Close Options</h4><br>
 <pre>
 $.fn.jAlert({
@@ -381,7 +380,7 @@ $.fn.jAlert({
 });
 </pre>
 <br><hr id='miscOptions'><br><h1>Misc Options</h1>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Different Sizes', 'message': 'I am small, but could be small, medium, large, or full.', 'size': 'small' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Different Sizes', 'message': 'I am small, but could be small, medium, large, or full.', 'size': 'small' }); ; return false;" style="float:right">Demo</a>
 		<h4>Sizes</h4><br>
 <pre>
 $.fn.jAlert({
@@ -390,7 +389,7 @@ $.fn.jAlert({
 	'size': 'small'
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Added CSS Class', 'message': 'I have an extra class (poo)', 'cssClass': 'poo' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Added CSS Class', 'message': 'I have an extra class (poo)', 'cssClass': 'poo' }); ; return false;" style="float:right">Demo</a>
 		<h4>Adding Classes</h4><br>
 <pre>
 $.fn.jAlert({
@@ -399,7 +398,7 @@ $.fn.jAlert({
 	'cssClass': 'poo'
 });
 </pre>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Added CSS ID', 'message': 'I have an ID (poo)', 'id': 'poo' })" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Added CSS ID', 'message': 'I have an ID (poo)', 'id': 'poo' }); ; return false;" style="float:right">Demo</a>
 		<h4>Adding an ID</h4><br>
 <pre>
 $.fn.jAlert({
@@ -506,7 +505,7 @@ SAVE 10% NOW!
           </ul>
           
           <br><hr id='comments'><br><h1>Comments / Questions / Answers</h1><br>
-          <div class="fb-comments" data-href="http://flwebsites.biz/jAlert" data-width="350px" data-numposts="100" data-colorscheme="light"></div>
+          <div class="fb-comments" data-href="http://flwebsites.biz/jAlert" data-width="500" data-numposts="100" data-colorscheme="light"></div>
           <div id="fb-root"></div>
 			<script>(function(d, s, id) {
 			  var js, fjs = d.getElementsByTagName(s)[0];
@@ -514,7 +513,10 @@ SAVE 10% NOW!
 			  js = d.createElement(s); js.id = id;
 			  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1395848047336800";
 			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));</script>
+			}(document, 'script', 'facebook-jssdk'));
+				</script>
+
+</script>
           
          <hr id='license'><br>
           
@@ -723,6 +725,18 @@ $('.autofocusDemo').on('click', function(e){
       'numPreferredServices' : 5
     }   
   });
+  
+  
+function resizeFacebookComments(){
+$('.fb-comments iframe').each(function(){
+	var thisFBCom = $(this);
+    var src = thisFBCom.attr('src').split('width='),
+      width = thisFBCom.parent().width();
+	  thisFBCom.attr('src', src[0] + 'width=' + width);
+	});
+}
+$(window).on('resize load', resizeFacebookComments);
+setTimeout(resizeFacebookComments, 2000);
 </script>
 <!-- AddThis Smart Layers END -->
     </div>
