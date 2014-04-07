@@ -21,18 +21,29 @@ var positionAlert = function(thisAlert){
 	thisAlert = thisAlert.find('.jAlert');
 	var divHeight = thisAlert.innerHeight();
   	var winHeight = $(window).height();
+  	
+  	/* If div is smaller than height of window, center it  */ 
+  	if(divHeight < winHeight){
+	  	var margin = winHeight - divHeight;
+	  	margin = margin/2;
+	/* Otherwise add a static top margin */
+  	}else{
   	if(winHeight < 500){
 	  	var margin = 20;
   	}else{
 	  	var margin = 100;
   	}
-  	/* Add top margin, take it away from window height */
-  	thisAlert.css('margin-top', margin+'px');
+  	}
+  	
+  	/* Take top margin away from window height */
 	winHeight = winHeight - margin;
+	thisAlert.css('margin-top', margin+'px');
+	
   	/* If height of window + margin is shorter than the modal, scroll to top and keep position: absolute */
   	if(divHeight > winHeight){
 			/* Scroll to top */
 			$('html, body').animate({ scrollTop: 0 }, 'fast');
+			
 			/* Show the modal absolute */
   			thisAlert.closest('.jAlertWrap').css('position', 'absolute');
 		}else{
