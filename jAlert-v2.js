@@ -81,6 +81,7 @@ $.fn.jAlert = function(options) {
 		id: false,
 		theme: false,
 		size: false,
+		replace: false,
 		clickAnywhere: false,
 		hideOnEsc: true,
 		closeBtn: true,
@@ -224,6 +225,12 @@ $.fn.jAlert = function(options) {
   		div += "</div></div></div></div>";
   		/* Turn the HTML into an element */
 	  	var div = $(div);
+	  	/* If opted to replace other jAlerts, then hide/remove them */
+	  	if(options.replace){
+		  	$('.jAlertWrap').each(function(){
+			  	$(this).closeAlert(true);
+		  	});
+	  	}
 	  	/* Append the new element to the body, show it, and determine absolute/fixed positioning based on height vs window height */
 	  	div.appendTo('body').show('fast', function(){
 	  		positionjAlert(div);

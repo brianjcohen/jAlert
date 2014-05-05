@@ -380,13 +380,31 @@ $.fn.jAlert({
 });
 </pre>
 <br><hr id='miscOptions'><br><h1>Misc Options</h1>
-		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Different Sizes', 'message': 'I am small, but could be small, medium, large, or full.', 'size': 'small' }); ; return false;" style="float:right">Demo</a>
+		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Different Sizes', 'message': 'I am small, but could be small, medium, large, or full.', 'size': 'small' }); return false;" style="float:right">Demo</a>
 		<h4>Sizes</h4><br>
 <pre>
 $.fn.jAlert({
 	'title': 'Different Sizes',
 	'message': 'I am small, but could be small, medium, large, or full.',
 	'size': 'small'
+});
+</pre>
+		<br><br><a href="#" class="replaceDemo" style="float:right">Demo</a>
+		<h4>Open Modal, Close any Others</h4><br>
+<pre>
+$.fn.jAlert({
+	'message': 'I\'m not really needed anymore.',
+	'btn': [
+		{
+		'label':'Open the real Demo jAlert', 'cssClass': 'blue', 'closeOnClick': false, 'onClick': function(){
+			$.fn.jAlert({
+				'title': 'Call me "The Replacer"',
+				'message': 'I\'m lonely now.',
+				'replace': true
+			});
+		} 
+		}
+	]
 });
 </pre>
 		<br><br><a href="#" onclick="$.fn.jAlert({ 'title': 'Added CSS Class', 'message': 'I have an extra class (poo)', 'cssClass': 'poo' }); ; return false;" style="float:right">Demo</a>
@@ -702,6 +720,24 @@ $('.autofocusDemo').on('click', function(e){
 				}
 			});
 		});
+
+$('.replaceDemo').on('click', function(e){
+	e.preventDefault();
+	$.fn.jAlert({
+		'message': 'I\'m not really needed anymore.',
+		'btn': [
+			{
+			'label':'Open the real Demo jAlert', 'cssClass': 'blue', 'closeOnClick': false, 'onClick': function(){
+				$.fn.jAlert({
+					'title': 'Call me "The Replacer"',
+					'message': 'I\'m lonely now.',
+					'replace': true
+				});
+			} 
+			}
+		]
+	});
+});
 
 	  /* Google Analytics */
 	  var _gaq = _gaq || [];
