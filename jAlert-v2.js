@@ -329,3 +329,20 @@ function alert(msg){
 		'message': msg
 	});
 }
+/* Optional error and success templates */
+function successAlert(msg){
+	$.fn.jAlert({
+		'title': 'Success',
+		'message': msg,
+		'theme': 'success',
+		'clickAnywhere': true
+	});	
+}
+function errorAlert(msg){
+	$.fn.jAlert({
+		'title': 'Error',
+		'message': msg,
+		'theme': 'error',
+		'clickAnywhere': true
+	});
+}

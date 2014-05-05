@@ -56,3 +56,5 @@ return showJAlert(content);});}else if(options.iframeUrl){content="<iframe style
 return showJAlert(content);}else if(options.imgUrl){content="<div style='text-align: center;'><img style='border: 0px; max-width: 100%;' src='"+options.imgUrl+"'></div>";if(options.message){content+=options.message;}
 return showJAlert(content);}else if(options.message){return showJAlert(options.message);}}
 return alert.initialize();}})(jQuery);});function alert(msg){$.fn.jAlert({'message':msg});}
+function successAlert(msg){$.fn.jAlert({'title':'Success','message':msg,'theme':'success','clickAnywhere':true});}
+function errorAlert(msg){$.fn.jAlert({'title':'Error','message':msg,'theme':'error','clickAnywhere':true});}
