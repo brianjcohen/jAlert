@@ -17,7 +17,7 @@
 $(function(){
 
 /* Positions an alert based on screen height */
-var positionAlert = function(thisAlert){
+var positionjAlert = function(thisAlert){
 	thisAlert = thisAlert.find('.jAlert');
 	var divHeight = thisAlert.innerHeight();
   	var winHeight = $(window).height();
@@ -226,10 +226,10 @@ $.fn.jAlert = function(options) {
 	  	var div = $(div);
 	  	/* Append the new element to the body, show it, and determine absolute/fixed positioning based on height vs window height */
 	  	div.appendTo('body').show('fast', function(){
-	  		positionAlert(div);
+	  		positionjAlert(div);
 	  		/* Re-Position when resized */
-	  		div.find('.jAlert').resize(function(){
-				positionAlert(div);
+	  		$(window).resize(function(){
+				positionjAlert(div);
 			});
   		});
 	  	/* Add on click handlers for closing, hiding when you click anywhere, the ok button, and the cancel button */
