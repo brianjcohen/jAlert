@@ -1,26 +1,17 @@
-/*
- * jQuery resize event - v1.1 - 3/14/2010
- * http://benalman.com/projects/jquery-resize-plugin/
- * 
- * Copyright (c) 2010 "Cowboy" Ben Alman
- * Dual licensed under the MIT and GPL licenses.
- * http://benalman.com/about/license/
- */
-(function($,h,c){var a=$([]),e=$.resize=$.extend($.resize,{}),i,k="setTimeout",j="resize",d=j+"-special-event",b="delay",f="throttleWindow";e[b]=250;e[f]=true;$.event.special[j]={setup:function(){if(!e[f]&&this[k]){return false}var l=$(this);a=a.add(l);$.data(this,d,{w:l.width(),h:l.height()});if(a.length===1){g()}},teardown:function(){if(!e[f]&&this[k]){return false}var l=$(this);a=a.not(l);l.removeData(d);if(!a.length){clearTimeout(i)}},add:function(l){if(!e[f]&&this[k]){return false}var n;function m(s,o,p){var q=$(this),r=$.data(this,d);r.w=o!==c?o:q.width();r.h=p!==c?p:q.height();n.apply(this,arguments)}if($.isFunction(l)){n=l;return m}else{n=l.handler;l.handler=m}}};function g(){i=h[k](function(){a.each(function(){var n=$(this),m=n.width(),l=n.height(),o=$.data(this,d);if(m!==o.w||l!==o.h){n.trigger(j,[o.w=m,o.h=l])}});g()},e[b])}})(jQuery,this);
-
 /* 
 	jAlert v.2
 	Made with love by Versatility Werks (http://flwebsites.biz)
 	MIT Licensed
 */
-
 $(function(){
 
 /* Positions an alert based on screen height */
-var positionjAlert = function(thisAlert){
-	thisAlert = thisAlert.find('.jAlert');
-	var divHeight = thisAlert.innerHeight();
-  	var winHeight = $(window).height();
+var positionjAlert = function(thisAlertWrap){
+	thisAlert = thisAlertWrap.find('.jAlert');
+	
+	var divHeight = thisAlert.innerHeight(),
+		winHeight = $(window).height(),
+  		winWidth = $(window).width();
   	
   	/* If div is smaller than height of window, center it  */ 
   	if(divHeight < winHeight){
@@ -28,29 +19,30 @@ var positionjAlert = function(thisAlert){
 	  	margin = margin/2;
 	/* Otherwise add a static top margin */
   	}else{
-  	if(winHeight < 500){
-	  	var margin = 20;
-  	}else{
-	  	var margin = 100;
-  	}
+	  	if(winWidth < 500){
+		  	var margin = 20;
+	  	}else{
+		  	var margin = 100;
+	  	}
   	}
   	
   	/* Take top margin away from window height */
 	winHeight = winHeight - margin;
-	thisAlert.css('margin-top', margin+'px');
 	
-  	/* If height of window + margin is shorter than the modal, scroll to top and keep position: absolute */
+  	/* If height of window + margin is shorter than the modal, scroll to top and set position: absolute */
   	if(divHeight > winHeight){
-			/* Scroll to top */
-			$('html, body').animate({ scrollTop: 0 }, 'fast');
+		/* Show the modal absolute */
+		thisAlertWrap.css('position', 'absolute');
+		thisAlert.css('margin-top', '0px');
+		return true;
 			
-			/* Show the modal absolute */
-  			thisAlert.closest('.jAlertWrap').css('position', 'absolute');
-		}else{
-			/* Show the modal fixed */
-  			thisAlert.closest('.jAlertWrap').css('position', 'fixed');
-		}
+	}else{
+		/* Show the modal fixed */
+		thisAlertWrap.css('position', 'fixed');
+		thisAlert.css('margin-top', margin+'px');
+		return false;
 	}
+}
 
 ;(function($){
 
@@ -233,11 +225,14 @@ $.fn.jAlert = function(options) {
 	  	}
 	  	/* Append the new element to the body, show it, and determine absolute/fixed positioning based on height vs window height */
 	  	div.appendTo('body').show('fast', function(){
-	  		positionjAlert(div);
-	  		/* Re-Position when resized */
-	  		$(window).resize(function(){
-				positionjAlert(div);
-			});
+	  		var thisAlert = $(this);
+	  		/* If positioning returns true (absolute) scroll to top */
+	  		if(positionjAlert(thisAlert)){
+		  		/* Scroll to top */
+		  		$('html, body').animate({ scrollTop: 0 }, 'fast');
+	  		}
+			/* Watch for change and position accordingly */
+			window.setInterval(function(){ positionjAlert(thisAlert) }, 500);
   		});
 	  	/* Add on click handlers for closing, hiding when you click anywhere, the ok button, and the cancel button */
 	  	if(options.closeBtn){
