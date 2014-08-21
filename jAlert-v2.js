@@ -144,7 +144,7 @@ $.fn.jAlert = function(options) {
     alert.closeAlert = function(remove, onClose){
 	var instance = $(this);
 	if(instance.length){
-	instance.hide('200', function(){
+	instance.fadeOut('200', function(){
 	if(remove){
 		instance.remove();
 	}
@@ -224,7 +224,7 @@ $.fn.jAlert = function(options) {
 		  	});
 	  	}
 	  	/* Append the new element to the body, show it, and determine absolute/fixed positioning based on height vs window height */
-	  	div.appendTo('body').show('fast', function(){
+	  	div.appendTo('body').show(0, function(){
 	  		var thisAlert = $(this);
 	  		/* If positioning returns true (absolute) scroll to top */
 	  		if(positionjAlert(thisAlert)){
