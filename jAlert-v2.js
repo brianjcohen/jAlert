@@ -205,12 +205,16 @@ $.fn.jAlert = function(options) {
   		if(options.btn){ div += "<div style='clear: both;'></div><div class='jBtnWrap'>";
   			$.each(options.btn, function(index, value){
   				var thisBtn = options.btn[index];
-  				if(typeof thisBtn['href'] == 'undefined'){ thisBtn['href'] = ''; }
+  				if(typeof thisBtn['href'] == 'undefined'){ thisBtn['href'] = '#'; }
   				if(typeof thisBtn['class'] == 'undefined'){ thisBtn['class'] = ''; }
   				if(typeof thisBtn['label'] == 'undefined'){ thisBtn['label'] = ''; }
   				if(typeof thisBtn['id'] == 'undefined'){ thisBtn['id'] = ''; }
   				if(typeof thisBtn['target'] == 'undefined'){ thisBtn['target'] = 'self'; }
-	  			div += "<a href='"+thisBtn['href']+"' id='"+thisBtn['id']+"' target='"+thisBtn['target']+"' class='jBtn "+thisBtn['cssClass']+"'>"+thisBtn['label']+"</a> ";
+	  			div += "<a href='"+thisBtn['href']+"'";
+				if (typeof thisBtn['target'] != undefined) {
+					div += "id='"+thisBtn['id']+"'";
+				}
+				div += "target='_"+thisBtn['target']+"' class='jBtn "+thisBtn['cssClass']+"'>"+thisBtn['label']+"</a> ";
   			});
   		}
   		/* Close all jAlert/wrapper divs */
